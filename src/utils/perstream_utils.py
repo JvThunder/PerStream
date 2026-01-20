@@ -38,7 +38,7 @@ def get_triplet(
     caption,
     api_key=None,
     model="gpt-3.5-turbo",
-    max_retries=1,
+    max_retries=3,
     retry_delay=1,
     verbose=False,
     max_triplets=2
@@ -265,8 +265,6 @@ def remember_gate(frame, memory_subclass_embedding_matrix, category_names, model
 
 def generate_buffer_caption(buffer_frames, model, processor):
     """Generate caption from buffer frames"""
-    
-    # print("Buffer Length:", len(buffer_frames))
     conversation = [{
         "role": "user",
         "content": [

@@ -32,7 +32,7 @@ def parse_args():
     parser.add_argument('--output_name', help='Name of the file for storing results JSON.', required=True)
     parser.add_argument("--model-path", type=str, default="facebook/opt-350m")
     parser.add_argument("--model-base", type=str, default=None)
-    parser.add_argument("--conv-mode", type=str, default=None)
+    parser.add_argument("--conv-mode", type=str, default="vicuna_v1")
     parser.add_argument("--num-chunks", type=int, default=1)
     parser.add_argument("--chunk_idx", type=int, default=0)
     parser.add_argument("--model-max-length", type=int, default=None)
@@ -44,8 +44,8 @@ def parse_args():
     parser.add_argument("--cpu-offload", action="store_true", help="Offload model parts to CPU when possible")
     
     # Memory-specific arguments
-    parser.add_argument("--include-memories", action="store_true", help="Include memory context in prompts")
-    parser.add_argument("--memory-types", nargs="+", default=[],
+    parser.add_argument("--no-include-memories", dest="include_memories", action="store_false", default=True, help="Disable memory context in prompts (default: memories are included)")
+    parser.add_argument("--memory-types", nargs="+", default=["type_1_memories", "type_2_memories"],
                        help="Types of memories to include")
     parser.add_argument("--memory-format", type=str, default="structured", choices=["structured", "narrative"],
                        help="How to format memory context")
@@ -61,7 +61,6 @@ def parse_args():
     parser.add_argument("--video-end-after", type=float, default=2.0, help="Seconds to extract after timestamp")
     parser.add_argument("--target-fps", type=float, default=1, help="Target FPS for frame sampling (reduced for memory)")
     parser.add_argument("--api_key", type=str, default=None, help="Add key here: sk-proj...")
-    parser.add_argument("--num_gpus", type=int, default=1, help="Number of GPUs used")
 
     parser.add_argument("--rho", type=float, default=0.3, help="Rho PMG")
     parser.add_argument("--delta", type=float, default=0.3, help="Delta PMG")
@@ -128,8 +127,6 @@ def run_inference(args):
         torch.backends.cudnn.benchmark = False
         torch.backends.cudnn.deterministic = True
     
-    # Initialize the model (following reference structure)
-    # model_name = get_model_name_from_path(args.model_path) + "_lora"
     model_name = get_model_name_from_path(args.model_path)
     if "finetune" in model_name:
         model_name += "_lora"
@@ -239,7 +236,6 @@ def run_inference(args):
                 # -----------------------------
                 t0 = time.time()
                 triplets = get_triplet(buffer_caption, api_key=args.api_key)
-                # triplets = [("I", "question", "you")]
                 t1 = time.time()
                 print(f"[DEBUG] Triplet extraction took {t1 - t0:.2f}s")
 

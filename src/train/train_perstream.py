@@ -246,12 +246,9 @@ class VideoMemoryQADataset(Dataset):
 
         if len(memory_context) > 1000:
             memory_context = memory_context[:1000] + "..."
-        # memory_context = ""
-
         # Build full conversation
         full_text = f"<|im_start|>user\n{memory_context}\n{user_message}<|im_end|>\n<|im_start|>assistant\n{assistant_message}<|im_end|>"
 
-        # print(full_text)
         return {
             'video_frames': video_frames,  # List of PIL Images
             'text': full_text,
@@ -506,8 +503,6 @@ def load_data(args, oversample_nil_factor: int = 5):
     # Filter by split key
     train_questions = [q for q in all_data if q.get('split') == args.train_split_name]
     val_questions = [q for q in all_data if q.get('split') == args.val_split_name]
-    # train_questions += val_questions
-    
     print(f"Training samples (split='{args.train_split_name}'): {len(train_questions)}")
     print(f"Validation samples (split='{args.val_split_name}'): {len(val_questions)}")
     
@@ -534,12 +529,6 @@ def load_data(args, oversample_nil_factor: int = 5):
     sampled_silent = random.choices(silent_samples, k=100)
     train_questions = sampled_non_silent + sampled_silent
 
-    # if non_silent_samples:
-    #     oversampled_nil = non_silent_samples * oversample_nil_factor  # repeat NIL samples
-    #     train_questions += oversampled_nil
-    #     np.random.shuffle(train_questions)
-    #     print(f"Oversampled non-NIL examples {oversample_nil_factor}× → new training size: {len(train_questions)}")
-    
     return train_questions, val_questions if len(val_questions) > 0 else None
 
 
@@ -566,12 +555,12 @@ def setup_model_and_tokenizer(args):
     # (see VideoMemoryQADataset.__getitem__ lines 207-217)
     # The tokenizer will handle them as regular text sequences - no need to add as special tokens
     # This avoids embedding resizing issues with LoRA
-    print("✓ Using </response> and </silence> as text sequences (no special token addition)")
+    print("[OK] Using </response> and </silence> as text sequences (no special token addition)")
 
     # Enable gradient checkpointing if requested
     if args.gradient_checkpointing:
         model.gradient_checkpointing_enable()
-        print("✓ Gradient checkpointing enabled")
+        print("[OK] Gradient checkpointing enabled")
 
     # Configure LoRA
     lora_config = LoraConfig(
@@ -694,9 +683,9 @@ def main():
     print("\nMerging LoRA weights into base model...")
     try:
         model = model.merge_and_unload()
-        print("✓ Successfully merged LoRA weights into the base model")
+        print("[OK] Successfully merged LoRA weights into the base model")
     except Exception as e:
-        print(f"⚠️ Warning: Could not merge LoRA weights automatically. Error: {e}")
+        print(f"[WARNING] Warning: Could not merge LoRA weights automatically. Error: {e}")
 
     
     # Save final model
@@ -712,7 +701,7 @@ def main():
     trainer.save_metrics("train", metrics)
     trainer.save_state()
     
-    print(f"\n✓ Training complete! Model saved to {args.output_dir}")
+    print(f"\n[OK] Training complete! Model saved to {args.output_dir}")
 
 
 if __name__ == "__main__":

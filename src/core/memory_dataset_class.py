@@ -42,7 +42,6 @@ class MemoryDataset(Dataset):
             video_path = os.path.join(self.video_dir, video_id + ext)
             if os.path.exists(video_path):
                 frames = self._extract_frames(video_path, timestamp)
-                # print("Frames extracted:", frames.shape)
                 return frames
         
         raise FileNotFoundError(f"Video file not found for: {video_id}")
@@ -146,20 +145,22 @@ class MemoryDataset(Dataset):
             return self.__getitem__(idx)
         
         # Format question with memory context if enabled
-        if sample['type'] == 'proactive':
+        if sample.get('type') == 'proactive':
             user_prompt = "Please answer as if you are a personal assistant. No need to say your reasoning or if it is based on what memories, but be a helpful assistant. "
             qs = user_prompt + "\n\nQuestion: " + "Give a proactive response to the user's question based on the memories and video. Output </silence> if you don't have a response and </response> if you have a response."
         else:
             user_prompt = "Please answer as if you are a personal assistant. No need to say your reasoning or if it is based on what memories, but be a helpful assistant. "
-            qs = user_prompt + "\n\nQuestion: " + sample['question']
+            # Handle cases where 'question' might not exist (use 'caption' as fallback)
+            question_text = sample.get('question', sample.get('caption', ''))
+            qs = user_prompt + "\n\nQuestion: " + question_text
         
-        memories_list = sample['type_1_memories'] + sample['type_2_memories']
+        memories_list = sample.get('type_1_memories', []) + sample.get('type_2_memories', [])
         return {
             'memories': memories_list,
             'video_tensor': video_tensor,
             'video_id': video_id,
             'question': qs,
-            'answer': sample['answer']
+            'answer': sample.get('answer', '')
         }
 
     def __len__(self):

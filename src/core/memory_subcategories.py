@@ -70,7 +70,6 @@ def get_memory_subclass_embeddings(model, processor):
         # Use a descriptive prompt without generation
         prompt = f"Category: {category}. Description: {text}"
         embeddings[category] = get_text_embedding(prompt)
-        # print(embeddings[category].shape)
         print(f"Processed memory category: {category}")
 
     # combine as a matrix

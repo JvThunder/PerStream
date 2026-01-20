@@ -25,9 +25,9 @@ import warnings
 logging.getLogger().setLevel(logging.ERROR)
 warnings.filterwarnings("ignore", message="System prompt modified*")
 
-def video_stream_with_memory(queries, video_path, model_path, projection_model_path, buffer_size=8, queue_size=8, gamma_threshold=0.5, num_gpus=2, api_key=None, pool_size=(8, 8), enable_proactive=True):
+def video_stream_with_memory(queries, video_path, model_path, projection_model_path, buffer_size=8, queue_size=8, gamma_threshold=0.5, api_key=None, pool_size=(8, 8), enable_proactive=True):
     """
-    Extract embeddings with multi-GPU model and support both passive and proactive modes.
+    Extract embeddings with model and support both passive and proactive modes.
 
     Args:
         queries: List of user queries for passive mode
@@ -36,7 +36,6 @@ def video_stream_with_memory(queries, video_path, model_path, projection_model_p
         buffer_size: Number of frames per buffer
         queue_size: Size of short-term memory queue
         gamma_threshold: Similarity threshold for memory gate
-        num_gpus: Number of GPUs to use
         api_key: OpenAI API key for triplet extraction
         pool_size: Tuple (H, W) for pooling dimensions
         enable_proactive: If True, trigger proactive responses after each buffer
@@ -55,7 +54,7 @@ def video_stream_with_memory(queries, video_path, model_path, projection_model_p
     
     print("Generating memory subclass embeddings...")
     memory_subclass_embedding_matrix, category_names = get_memory_subclass_embeddings(model, processor)
-    all_frames, selected_ids = process_video(video_path)
+    all_frames, selected_ids = process_video(video_path, sample_rate=4)
 
     # Apply selective retention with buffer
     buffer_frames = []
@@ -143,10 +142,10 @@ def video_stream_with_memory(queries, video_path, model_path, projection_model_p
                 buffer_caption = "No frames selected for caption generation"
                 buffer_caption_vector = np.array([])
 
-            
 
             # Pass the api_key to get_triplet function
-            triplets = get_triplet(buffer_caption, api_key=api_key)
+            triplets = get_triplet(buffer_caption, api_key=api_key, verbose=True)
+            print(f"Triplets: {triplets}")
 
             for triplet in triplets:
                 subject, predicate, obj = triplet
@@ -194,7 +193,7 @@ def video_stream_with_memory(queries, video_path, model_path, projection_model_p
                     print(f"{'='*60}\n")
                     qna_pairs.append(("[PROACTIVE]", proactive_response, "N/A"))
                 else:
-                    print(f"\n🔇 Model chose to stay silent (no proactive response needed)")
+                    print(f"\nModel chose to stay silent (no proactive response needed)")
                     print(f"{'='*60}\n")
 
             buffer_frames = []
@@ -247,7 +246,6 @@ if __name__ == "__main__":
     parser.add_argument("--projection_model_path", type=str,
                        default="ckpts/projection_mlp.pt",
                        help="Path to the projection model")
-    parser.add_argument("--num_gpus", type=int, default=2, help="Number of GPUs to use")
     parser.add_argument("--gamma_threshold", type=float, default=0.2, help="Similarity threshold for memory gate")
     parser.add_argument("--buffer_size", type=int, default=4, help="Buffer size for frame processing")
     parser.add_argument("--queue_size", type=int, default=1, help="Queue size for frame processing")
@@ -257,8 +255,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     
-    # Multi-GPU video embedding
-    print("Starting multi-GPU video processing...")
+    # Video embedding
+    print("Starting video processing...")
     print(f"Available GPUs: {torch.cuda.device_count()}")
     print(f"API Key provided: {'Yes' if args.api_key else 'No (will use environment variable)'}")
     print(f"Pooling configuration: {args.pool_len}x{args.pool_len} patches (default: 8x8, recommended: 8-16 for quality)")
@@ -267,8 +265,6 @@ if __name__ == "__main__":
     queries = [
         {"query": "What is in the video?", "frame": 100},
         {"query": "Where am I?", "frame": 10},
-        # {"query": "Where did I put the bottle?", "frame": 420},
-        # {"query": "Tell me an object that is in the cabinet?", "frame": 460},
     ]
 
     video_stream_with_memory(
@@ -276,7 +272,6 @@ if __name__ == "__main__":
         video_path=args.video_path,
         model_path=args.model_path,
         projection_model_path=args.projection_model_path,
-        num_gpus=args.num_gpus,
         buffer_size=args.buffer_size,
         queue_size=args.queue_size,
         gamma_threshold=args.gamma_threshold,

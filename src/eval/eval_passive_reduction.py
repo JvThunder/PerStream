@@ -13,6 +13,7 @@ from tqdm import tqdm
 import time
 from collections import defaultdict
 import copy
+import psutil
 
 import warnings
 import logging
@@ -21,10 +22,9 @@ warnings.filterwarnings('ignore', message='.*System prompt modified.*')
 warnings.filterwarnings('ignore', message='.*audio output may not work.*')
 logging.getLogger().setLevel(logging.ERROR)  # Suppress WARNING level logs
 
-from src.core.multi_gpu_manager import MultiGPUModelManager
-from src.utils.perstream_utils import get_triplet, get_text_embedding, clear_cuda_cache
+from src.utils.model_utils import load_model
+from src.utils.perstream_utils import get_triplet, get_text_embedding, generate_buffer_caption, get_image_embedding
 from src.core.personalized_memory_graph import PersonalizedMemoryGraph
-from src.core.inference_utils import generate_buffer_caption, get_image_embedding
 from src.core.memory_subcategories import get_memory_subclass_embeddings
 from src.core.passive_user_query import passive_user_query
 from src.core.memory_dataset_class import MemoryDataset
@@ -40,7 +40,6 @@ def parse_args():
     parser.add_argument('--model-path', type=str, required=True)
     parser.add_argument('--model-base', type=str, default=None)
     parser.add_argument('--api_key', type=str, default=None)
-    parser.add_argument('--num_gpus', type=int, default=1)
     parser.add_argument('--conv-mode', type=str, default='vicuna_v1')
     parser.add_argument('--image-size', type=int, default=224)
     parser.add_argument('--model-max-length', type=int, default=None)
@@ -52,7 +51,7 @@ def parse_args():
     parser.add_argument("--cpu-offload", action="store_true", help="Offload model parts to CPU when possible")
     
     # Memory-specific arguments
-    parser.add_argument("--include-memories", action="store_true", help="Include memory context in prompts")
+    parser.add_argument("--no-include-memories", dest="include_memories", action="store_false", default=True, help="Disable memory context in prompts (default: memories are included)")
     parser.add_argument("--memory-types", nargs="+", default=["type_1_memories", "type_2_memories"],
                        help="Types of memories to include")
     parser.add_argument("--memory-format", type=str, default="structured", choices=["structured", "narrative"],
@@ -63,8 +62,10 @@ def parse_args():
     
     # Period settings
     parser.add_argument('--num_periods', type=int, default=4, help='Number of periods to evaluate')
-    parser.add_argument('--device_vram_gb', type=float, default=80.0, 
-                       help='Device VRAM capacity R (e.g., 80GB for A100)')
+    parser.add_argument('--device_ram_gb', type=float, default=4.0, 
+                       help='Device CPU RAM capacity R (e.g., 4GB)')
+    parser.add_argument('--r_prime_gb', type=float, default=None,
+                       help="R' - Maximum CPU RAM usage per period (GB). If not provided, will be estimated empirically.")
     parser.add_argument('--num-chunks', type=int, default=1)
     parser.add_argument('--chunk_idx', type=int, default=0)
     
@@ -179,7 +180,7 @@ def process_memory_parallel(memory, api_key, memory_subclass_embedding_matrix, c
 def run_period_evaluation(args, model, processor, memory_subclass_embedding_matrix, 
                          category_names, samples, pmg, reduction_mode, period_num, user_id=None):
     """
-    Run evaluation for one period with specified reduction mode
+    Run evaluation for one period with specified reduction mode.
     """
     predictions = []
     ground_truths = []
@@ -187,31 +188,43 @@ def run_period_evaluation(args, model, processor, memory_subclass_embedding_matr
     
     desc = f"User {user_id} - Period {period_num} - {reduction_mode}" if user_id else f"Period {period_num} - {reduction_mode}"
     
+    # Build memory graph if not already built (only once per period)
+    if period_num == 1:
+        print(f"Building Memory Graph for user...")
+        # Get all unique memories from all samples
+        all_memories = []
+        for sample in samples:
+            all_memories.extend(sample['memories'])
+        # Remove duplicates while preserving order
+        seen = set()
+        unique_memories = []
+        for memory in all_memories:
+            if memory not in seen:
+                seen.add(memory)
+                unique_memories.append(memory)
+        
+        max_workers = min(8, len(unique_memories))
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = [
+                executor.submit(
+                    process_memory_parallel,
+                    memory,
+                    args.api_key,
+                    memory_subclass_embedding_matrix,
+                    category_names,
+                    pmg
+                )
+                for memory in unique_memories
+            ]
+            for f in as_completed(futures):
+                f.result()
+    
+    # Process each sample
     for sample in tqdm(samples, desc=desc):
         # Load video
         video_tensors = sample['video_tensor']
         question = sample['question']
         answer = sample['answer']
-        memories = sample['memories']
-        
-        # Build memory graph if not already built
-        if period_num == 1:  # Only build in first period
-            print(f"Building Memory Graph for user...")
-            max_workers = min(8, len(memories))
-            with ThreadPoolExecutor(max_workers=max_workers) as executor:
-                futures = [
-                    executor.submit(
-                        process_memory_parallel,
-                        memory,
-                        args.api_key,
-                        memory_subclass_embedding_matrix,
-                        category_names,
-                        pmg
-                    )
-                    for memory in memories
-                ]
-                for f in as_completed(futures):
-                    f.result()
         
         # Inference
         start_time = time.time()
@@ -269,15 +282,17 @@ def run_period_evaluation(args, model, processor, memory_subclass_embedding_matr
         latencies.append(latency)
     
     # Calculate metrics
+    questions = [s['question'] for s in samples]
+    
     metrics = calculate_metrics_with_gpt(predictions, ground_truths, 
-                                     [s['question'] for s in samples], 
+                                     questions, 
                                      args.api_key)
     metrics['avg_latency'] = round(np.mean(latencies), 2) if latencies else 0.00
     
     return metrics, pmg
 
 
-def get_top_users_by_datapoints(samples, top_n=1):
+def get_top_users_by_datapoints(samples, top_n=3):
     """
     Get top N users with most datapoints
     Returns: list of (participant_id, count) tuples
@@ -288,8 +303,7 @@ def get_top_users_by_datapoints(samples, top_n=1):
     
     # Sort by count descending
     sorted_users = sorted(user_counts.items(), key=lambda x: x[1], reverse=True)
-    # sorted_users = sorted(user_counts.items(), key=lambda x: x[1])
-    return sorted_users
+    return sorted_users[:top_n]
 
 
 def split_user_data_into_periods(user_samples, num_periods=4):
@@ -364,7 +378,7 @@ def organize_samples_by_user_and_period(samples, num_periods=4):
 
 def estimate_r_prime_empirically(period_samples, verbose=True):
     """
-    Estimate R' (maximum VRAM usage over a period) empirically.
+    Estimate R' (maximum CPU RAM usage over a period) empirically.
     Calculate based on memory vector sizes and number of nodes/edges.
     
     Args:
@@ -431,8 +445,7 @@ def generate_table_5(results, output_dir):
     # Generate table for each user
     table_output = []
     table_output.append("\nConfig:")
-    table_output.append(f"  Device VRAM (R): {results['config']['device_vram_R']} GB")
-    table_output.append(f"  Model VRAM: {results['config']['model_vram_gb']:.2f} GB")
+    table_output.append(f"  Device RAM (R): {results['config']['device_ram_R']} GB")
     table_output.append(f"  Estimated R': {results['config']['estimated_R_prime']:.2f} GB")
     table_output.append(f"  Reduction triggered when: {results['config']['reduction_triggered_when']}")
     table_output.append("")
@@ -490,12 +503,12 @@ def generate_table_5(results, output_dir):
                 final_period = period_results[-1]
                 final_nodes = final_period['pmg_nodes']
                 final_edges = final_period['pmg_edges']
-                final_vram = final_period['R_cur_after_gb']
+                final_ram = final_period['ram_after_gb']
                 
                 table_output.append(f"  {reduction_mode}:")
                 table_output.append(f"    Reductions triggered: {total_reductions}")
                 table_output.append(f"    Final PMG size: {final_nodes} nodes, {final_edges} edges")
-                table_output.append(f"    Final VRAM usage: {final_vram:.2f} GB")
+                table_output.append(f"    Final RAM usage: {final_ram:.2f} GB")
         
         table_output.append("")
     
@@ -565,18 +578,11 @@ def run_experiment(args):
     
     # Initialize model
     print("Loading model...")
-    model_manager = MultiGPUModelManager(args.model_path, num_gpus=args.num_gpus)
-    model_manager.load_model_multi_gpu()
-    model, processor = model_manager.model, model_manager.processor
+    model, processor = load_model(args.model_path, device='cuda')
     
     # Move model to half precision to save memory if low_memory mode
     if args.low_memory:
         model = model.half()
-    
-    # Measure model VRAM usage
-    torch.cuda.synchronize()
-    model_memory_gb = torch.cuda.memory_allocated() / (1024**3)
-    print(f"Model base VRAM usage: {model_memory_gb:.2f} GB")
     
     print("Generating memory subclass embeddings...")
     memory_subclass_embedding_matrix, category_names = get_memory_subclass_embeddings(model, processor)
@@ -585,11 +591,7 @@ def run_experiment(args):
     
     # Load data
     with open(args.gt_file) as f:
-        all_samples = json.load(f)
-    
-    # Filter test split (or use passive type)
-    test_samples = [s for s in all_samples if s.get('split') != 'train']
-    # test_samples = [s for s in test_samples if s.get('type') == 'passive']
+        test_samples = json.load(f)
     
     print(f"Total test samples: {len(test_samples)}")
     
@@ -599,20 +601,21 @@ def run_experiment(args):
         num_periods=args.num_periods
     )
     
-    # Estimate R (device VRAM capacity)
-    R = args.device_vram_gb  # e.g., 80GB for A100
-    print(f"\nDevice VRAM (R): {R} GB")
+    # Estimate R (device CPU RAM capacity)
+    R = args.device_ram_gb  # e.g., 128GB
+    print(f"\nDevice RAM (R): {R} GB")
     
-    # Estimate R' for first period (maximal usage over a period)
-    # We'll use the first user's first period as representative
-    first_user_id = top_users[0][0]
-    first_period_samples = user_period_data[first_user_id][0]
-    R_prime = estimate_r_prime_empirically(first_period_samples)
-    print(f"Estimated R' (max usage per period): {R_prime:.2f} GB")
-    
-    # Calculate available VRAM for PMG
-    available_for_pmg = R - model_memory_gb
-    print(f"Available VRAM for PMG: {available_for_pmg:.2f} GB")
+    # Get R' (maximum RAM usage per period)
+    if args.r_prime_gb is not None:
+        R_prime = args.r_prime_gb
+        print(f"R' (max usage per period): {R_prime:.2f} GB (from argument)")
+    else:
+        # Estimate R' for first period (maximal usage over a period)
+        # We'll use the first user's first period as representative
+        first_user_id = top_users[0][0]
+        first_period_samples = user_period_data[first_user_id][0]
+        R_prime = estimate_r_prime_empirically(first_period_samples)
+        print(f"Estimated R' (max usage per period): {R_prime:.2f} GB")
     
     # Results storage
     results = {
@@ -620,9 +623,7 @@ def run_experiment(args):
         'config': {
             'num_periods': args.num_periods,
             'top_users': [{'user_id': uid, 'datapoints': count} for uid, count in top_users],
-            'device_vram_R': R,
-            'model_vram_gb': model_memory_gb,
-            'available_for_pmg_gb': available_for_pmg,
+            'device_ram_R': R,
             'estimated_R_prime': R_prime,
             'reduction_triggered_when': f"R - R_cur < R' (i.e., {R} - R_cur < {R_prime:.2f})"
         }
@@ -644,7 +645,8 @@ def run_experiment(args):
             print(f"{'-'*60}")
             
             # Initialize fresh PMG for this user + strategy
-            pmg = PersonalizedMemoryGraph(get_text_embedding)
+            # Allow duplicates to maximize nodes and edges for this experiment
+            pmg = PersonalizedMemoryGraph(get_text_embedding, similarity_threshold=1, allow_duplicates=True)
             
             user_period_results = []
             
@@ -658,28 +660,22 @@ def run_experiment(args):
                 dataset = MemoryDataset(period_samples, args.video_dir, processor, model.config, args)
                 
                 # Check if reduction needed (before processing new period)
-                pmg_memory_before = pmg.get_memory_usage_estimate()
-                pmg_memory_gb = pmg_memory_before['total_memory_mb'] / 1024
+                # Measure actual RAM usage
+                process = psutil.Process(os.getpid())
+                current_ram_gb = process.memory_info().rss / (1024**3)
                 
-                # Get actual GPU memory usage
-                torch.cuda.synchronize()
-                current_gpu_memory_gb = torch.cuda.memory_allocated() / (1024**3)
-                
-                # FIXED: R_cur should be GPU memory + PMG memory
-                R_cur = current_gpu_memory_gb + pmg_memory_gb  # Total VRAM usage (GPU + PMG)
+                R_cur = current_ram_gb
                 available = R - R_cur
                 
-                print(f"  PMG RAM: {pmg_memory_gb:.2f} GB")
-                print(f"  GPU VRAM: {current_gpu_memory_gb:.2f} GB")
-                print(f"  Total used (R_cur = GPU + PMG): {R_cur:.2f} GB")
-                print(f"  Available: {available:.2f} GB")
+                print(f"  Current RAM: {R_cur:.2f} GB")
+                print(f"  Available RAM: {available:.2f} GB")
                 print(f"  R' threshold: {R_prime:.2f} GB")
                 
                 reduction_triggered = False
-                if reduction_mode and period_num > 1 and available < R_prime:
+                if reduction_mode and period_num > 1 and R_cur + R_prime > R:
                     reduction_triggered = True
-                    target_reduction = R_prime - available  # Free enough for new period + buffer
-                    print(f"  ⚠️  Reduction TRIGGERED: Need to free {target_reduction:.2f} GB")
+                    target_reduction = (R_cur + R_prime) - R  # Free enough for new period + buffer
+                    print(f"  [WARNING]  Reduction TRIGGERED: Need to free {target_reduction:.2f} GB")
                     
                     reduction_stats = pmg.reduce(
                         target_memory_mb=target_reduction * 1024,
@@ -688,7 +684,7 @@ def run_experiment(args):
                     print(f"  Freed: {reduction_stats['total_memory_freed_mb']:.2f} MB")
                     print(f"  Nodes modified: {reduction_stats['nodes_modified']}")
                 else:
-                    print(f"  ✓ No reduction needed")
+                    print(f"  [OK] No reduction needed")
                 
                 # Evaluate passive mode
                 passive_metrics, pmg = run_period_evaluation(
@@ -697,17 +693,12 @@ def run_experiment(args):
                     period_num, user_id=user_id
                 )
                 
-                # Track VRAM after period
-                pmg_memory_after = pmg.get_memory_usage_estimate()
-                pmg_memory_after_gb = pmg_memory_after['total_memory_mb'] / 1024
+                # Track RAM after period
+                process = psutil.Process(os.getpid())
+                current_ram_after_gb = process.memory_info().rss / (1024**3)
                 
-                # Get GPU memory after period
-                torch.cuda.synchronize()
-                current_gpu_memory_after_gb = torch.cuda.memory_allocated() / (1024**3)
-                
-                # FIXED: R_cur_after should be GPU memory + PMG memory
-                R_cur_after = current_gpu_memory_after_gb + pmg_memory_after_gb
-                vram_growth = R_cur_after - R_cur
+                R_cur_after = current_ram_after_gb
+                ram_growth = R_cur_after - R_cur
                 
                 period_result = {
                     'user_id': user_id,
@@ -715,13 +706,9 @@ def run_experiment(args):
                     'reduction_mode': reduction_name,
                     'reduction_triggered': reduction_triggered,
                     'passive': passive_metrics,
-                    'pmg_memory_before_gb': pmg_memory_gb,
-                    'pmg_memory_after_gb': pmg_memory_after_gb,
-                    'gpu_vram_before_gb': current_gpu_memory_gb,
-                    'gpu_vram_after_gb': current_gpu_memory_after_gb,
-                    'R_cur_before_gb': R_cur,
-                    'R_cur_after_gb': R_cur_after,
-                    'vram_growth_gb': vram_growth,
+                    'ram_before_gb': R_cur,
+                    'ram_after_gb': R_cur_after,
+                    'ram_growth_gb': ram_growth,
                     'pmg_nodes': len(pmg.nodes),
                     'pmg_edges': len(pmg.edges)
                 }
@@ -731,9 +718,7 @@ def run_experiment(args):
                 # Print summary
                 print(f"\n  Results:")
                 print(f"    Passive - A↑: {passive_metrics['A↑']:.2f}, S↑: {passive_metrics['S↑']:.2f}")
-                print(f"    PMG growth: {pmg_memory_after_gb - pmg_memory_gb:.2f} GB")
-                print(f"    GPU VRAM growth: {current_gpu_memory_after_gb - current_gpu_memory_gb:.2f} GB")
-                print(f"    Total VRAM growth: {vram_growth:.2f} GB")
+                print(f"    RAM growth: {ram_growth:.2f} GB")
                 print(f"    PMG size: {len(pmg.nodes)} nodes, {len(pmg.edges)} edges")
             
             results['periods'].append({

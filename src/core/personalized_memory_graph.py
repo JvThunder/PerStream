@@ -95,11 +95,12 @@ class PersonalizedMemoryGraph:
     - Graph Layer: Dynamic triplet-based memory storage
     """
 
-    def __init__(self, embedding_function, similarity_threshold: float = 0.0, delta_dfs_threshold: float = 0.0, verbose=False):
+    def __init__(self, embedding_function, similarity_threshold: float = 0.9, delta_dfs_threshold: float = 0.0, verbose=False, allow_duplicates: bool = False):
         self.similarity_threshold = similarity_threshold
         self.delta_dfs_threshold = delta_dfs_threshold
         self.embedding_function = embedding_function
         self.verbose = verbose
+        self.allow_duplicates = allow_duplicates
         self.sequence_counter = 0
 
         # Tree Layer: Dictionary forest with memory categories as keys
@@ -245,10 +246,12 @@ class PersonalizedMemoryGraph:
         subject_id = self._find_or_create_node(category, subject, memory_set, is_object=False)
         obj_id = self._find_or_create_node(category, obj, memory_set, is_object=True)
 
-        existing_edge = self._find_edge(subject_id, obj_id, predicate)
-        if existing_edge:
-            if self.verbose: print("Existing edge exists!")
-            return subject_id, existing_edge.edge_id, obj_id
+        # Skip edge duplicate check if allow_duplicates is True
+        if not self.allow_duplicates:
+            existing_edge = self._find_edge(subject_id, obj_id, predicate)
+            if existing_edge:
+                if self.verbose: print("Existing edge exists!")
+                return subject_id, existing_edge.edge_id, obj_id
 
         # Create new edge
         self.sequence_counter += 1
@@ -266,35 +269,41 @@ class PersonalizedMemoryGraph:
         if category not in self.memory_forest:
             return ValueError("category must be in subcategory predefined")
 
-        # First check for exact text match (no duplicates allowed)
-        for node_id in self.memory_forest[category]:
-            if node_id in self.nodes:
-                if self.nodes[node_id] is not None and node_label is not None and self.nodes[node_id].node_label.lower().strip() == node_label.lower().strip():
-                    return node_id
+        # Skip duplicate checking if allow_duplicates is True
+        if not self.allow_duplicates:
+            # First check for exact text match (no duplicates allowed)
+            for node_id in self.memory_forest[category]:
+                if node_id in self.nodes:
+                    if self.nodes[node_id] is not None and node_label is not None and self.nodes[node_id].node_label.lower().strip() == node_label.lower().strip():
+                        return node_id
+            
+            # Generate embedding for the input text
+            label_embedding = self.embedding_function(node_label)
+            
+            # Search for semantically similar nodes using embedding similarity
+            best_similarity = 0.0
+            best_node_id = None
+            
+            # Check nodes in the same category first for efficiency
+            for node_id in self.memory_forest[category]:
+                if node_id in self.nodes:
+                    node = self.nodes[node_id]
+                    similarity = cosine_similarity(label_embedding, node.label_embedding)
+                    
+                    if similarity > best_similarity:
+                        best_similarity = similarity
+                        best_node_id = node_id
+            
+            # Return existing node if similarity exceeds threshold
+            if best_similarity >= self.similarity_threshold and best_node_id:
+                if self.verbose: print(f"Found similar node: '{node_label}' -> '{self.nodes[best_node_id].caption_text}' (similarity: {best_similarity:.3f})")
+                return best_node_id
+        else:
+            # When duplicates are allowed, skip duplicate checking and always create new node
+            # Still need to generate embedding for new node creation
+            label_embedding = self.embedding_function(node_label)
         
-        # Generate embedding for the input text
-        label_embedding = self.embedding_function(node_label)
-        
-        # Search for semantically similar nodes using embedding similarity
-        best_similarity = 0.0
-        best_node_id = None
-        
-        # Check nodes in the same category first for efficiency
-        for node_id in self.memory_forest[category]:
-            if node_id in self.nodes:
-                node = self.nodes[node_id]
-                similarity = cosine_similarity(label_embedding, node.label_embedding)
-                
-                if similarity > best_similarity:
-                    best_similarity = similarity
-                    best_node_id = node_id
-        
-        # Return existing node if similarity exceeds threshold
-        if best_similarity >= self.similarity_threshold and best_node_id:
-            if self.verbose: print(f"Found similar node: '{node_label}' -> '{self.nodes[best_node_id].caption_text}' (similarity: {best_similarity:.3f})")
-            return best_node_id
-        
-        # Create new node if no similar node found
+        # Create new node if no similar node found (or if duplicates allowed)
         if is_object:
             curr_storage_set = MemoryNode(
                 category=category,

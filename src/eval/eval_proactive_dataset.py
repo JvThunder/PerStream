@@ -13,15 +13,12 @@ import time
 from PIL import Image
 import gc
 
-from src.core.multi_gpu_manager import MultiGPUModelManager
-from src.utils.perstream_utils import get_triplet, get_text_embedding, clear_cuda_cache
+from src.utils.model_utils import load_model, load_projection_model
+from src.utils.perstream_utils import get_triplet, get_text_embedding, generate_buffer_caption, get_image_embedding
 from src.core.personalized_memory_graph import PersonalizedMemoryGraph
-from src.core.inference_utils import generate_buffer_caption, get_image_embedding
 from src.core.memory_subcategories import get_memory_subclass_embeddings
 from src.core.proactive_user_query import proactive_user_query
 from src.core.memory_dataset_class import MemoryDataset
-from src.train.train_projection import load_projection_model
-
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 def parse_args():
@@ -36,7 +33,7 @@ def parse_args():
     parser.add_argument('--output_name', help='Name of the file for storing results JSON.', required=True)
     parser.add_argument("--model-path", type=str, default="facebook/opt-350m")
     parser.add_argument("--model-base", type=str, default=None)
-    parser.add_argument("--conv-mode", type=str, default=None)
+    parser.add_argument("--conv-mode", type=str, default="vicuna_v1")
     parser.add_argument("--num-chunks", type=int, default=1)
     parser.add_argument("--chunk_idx", type=int, default=0)
     parser.add_argument("--model-max-length", type=int, default=None)
@@ -48,8 +45,8 @@ def parse_args():
     parser.add_argument("--cpu-offload", action="store_true", help="Offload model parts to CPU when possible")
     
     # Memory-specific arguments
-    parser.add_argument("--include-memories", action="store_true", help="Include memory context in prompts")
-    parser.add_argument("--memory-types", nargs="+", default=[],
+    parser.add_argument("--no-include-memories", dest="include_memories", action="store_false", default=True, help="Disable memory context in prompts (default: memories are included)")
+    parser.add_argument("--memory-types", nargs="+", default=["type_1_memories", "type_2_memories"],
                        help="Types of memories to include")
     parser.add_argument("--memory-format", type=str, default="structured", choices=["structured", "narrative"],
                        help="How to format memory context")
@@ -65,8 +62,12 @@ def parse_args():
     parser.add_argument("--video-end-after", type=float, default=2.0, help="Seconds to extract after timestamp")
     parser.add_argument("--target-fps", type=float, default=2, help="Target FPS for frame sampling (reduced for memory)")
     parser.add_argument("--api_key", type=str, default=None, help="Add key here: sk-proj...")
-    parser.add_argument("--num_gpus", type=int, default=1, help="Number of GPUs used")
-    parser.add_argument("--projection_model_path", type=str, default="/home/ubuntu/Test-India/PerStream/ckpts/projection_mlp.pt", help="Path to the projection model")
+    parser.add_argument("--projection_model_path", type=str, default="ckpts/projection_mlp.pt", help="Path to the projection model")
+
+    parser.add_argument("--rho", type=float, default=0.3, help="Rho PMG")
+    parser.add_argument("--delta", type=float, default=0.3, help="Delta PMG")
+    parser.add_argument("--topk", type=int, default=1, help="Top-K PMG")
+
     return parser.parse_args()
 
 def get_best_match_category(vector, memory_subclass_embedding_matrix, category_names):
@@ -128,19 +129,12 @@ def run_inference(args):
         torch.backends.cudnn.benchmark = False
         torch.backends.cudnn.deterministic = True
     
-    # Clear cache before starting
-    
-    
-    # Initialize the model (following reference structure)
-    # model_name = get_model_name_from_path(args.model_path) + "_lora"
     model_name = get_model_name_from_path(args.model_path)
     if "finetune" in model_name:
         model_name += "_lora"
     
     print("Loading model...")
-    model_manager = MultiGPUModelManager(args.model_path, num_gpus=args.num_gpus)
-    model_manager.load_model_multi_gpu()
-    model, processor = model_manager.model, model_manager.processor
+    model, processor = load_model(args.model_path)
 
     # Add special tokens for response control (matching training)
     special_tokens = {
@@ -160,13 +154,13 @@ def run_inference(args):
 
     print("Generating memory subclass embeddings...")
     memory_subclass_embedding_matrix, category_names = get_memory_subclass_embeddings(model, processor)
-
-    print("Loading projection model...")
-    projection_mlp = load_projection_model(args.projection_model_path, device=model.device)
-
+    
     # Move model to half precision to save memory
     if args.low_memory:
         model = model.half()
+    
+    print("Loading projection model...")
+    projection_mlp = load_projection_model(args.projection_model_path, device=model.device)
 
     print("Model loaded successfully")
     
@@ -177,23 +171,9 @@ def run_inference(args):
     
     print(f"Loaded {len(all_questions)} total samples")
 
-    # filter passive mode
+    # filter proactive mode
     all_questions = [q for q in all_questions if q.get('type') == 'proactive']
-    
-    # Filter by split='test' only (removed vt1t2_correctness filtering)
     gt_questions = [q for q in all_questions if q.get('split') == 'test']
-
-    gt_questions_notnil = [q for q in gt_questions if q.get('answer') != '</silence>']
-    gt_questions_nil = [q for q in gt_questions if q.get('answer') == '</silence>']
-
-    # print("SILENT Questions:", len(gt_questions_nil))
-    # print("NON-SILENT Questions:", len(gt_questions_notnil))
-    # gt_questions = gt_questions_nil[:90] + gt_questions_notnil[:60]
-    # gt_questions = all_questions
-    print(f"Filtered to {len(gt_questions)} test samples (split='test')")
-    
-    if len(gt_questions) == 0:
-        raise ValueError("No test samples found! Check that 'split' field is set to 'test' in your dataset.")
         
     # Ensure each sample has a unique ID
     for i, sample in enumerate(gt_questions):
@@ -238,23 +218,14 @@ def run_inference(args):
             
             
             video_tensors = batch['video_tensor']
-            sample_ids = batch['sample_id']
+            video_ids = batch['video_id']
             questions = batch['question']
             answers = batch['answer']
             memories = batch['memories']
-            pmg = PersonalizedMemoryGraph(get_text_embedding)
 
-            memories = batch['memories']
-            memory_context = "Memories:\n"
-            for i, memory in enumerate(memories, 1):
-                memory_context += f"{i}. {memory}\n"
-
-            if len(memory_context) > 1000:
-                memory_context = memory_context[:1000] + "..."
-            questions = memory_context + "\n" + questions
-
+            pmg = PersonalizedMemoryGraph(get_text_embedding, similarity_threshold=args.rho, delta_dfs_threshold=args.delta)
             print("Building Memory Graph...")
-            max_workers = min(8, len(memories))  # cap at 8 threads, for example
+            max_workers = min(8, len(memories))
             with ThreadPoolExecutor(max_workers=max_workers) as executor:
                 futures = [
                     executor.submit(
@@ -267,7 +238,7 @@ def run_inference(args):
                     )
                     for memory in memories
                 ]
-
+            
                 for f in as_completed(futures):
                     print(f.result())
 
@@ -369,12 +340,13 @@ def run_inference(args):
                 allocated_gb = torch.cuda.memory_allocated() / 1024**3
                 
                 sample_set = {
-                    'id': sample_ids,
+                    'id': video_ids,
                     'question': questions,
                     'answer': answers,
                     'pred': outputs,
                     'latency': latency,
-                    'vram': allocated_gb
+                    'vram': allocated_gb,
+                    '#nodes': len(pmg.nodes),
                 }
                 
                 ans_file.write(json.dumps(sample_set) + "\n")

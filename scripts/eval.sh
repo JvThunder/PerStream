@@ -1,26 +1,40 @@
 #!/bin/bash
-selected_gpu=0 # Change to the GPU you want to use (0, 1, 2, etc.)
-export CUDA_VISIBLE_DEVICES=$selected_gpu
 
-# get openai key from .env
-source .env
+# Evaluation script for passive and proactive datasets
+
+# Initialize conda
 eval "$(conda shell.bash hook)"
 conda activate perstream
 
+# Get OpenAI key from .env
+source .env
+
+# Configuration - can be overridden via environment variables
+MODEL_PATH="${MODEL_PATH:-Qwen/Qwen2.5-Omni-7B}"
+VIDEO_DIR="${VIDEO_DIR:-dataset/videos}"
+GT_FILE="${GT_FILE:-dataset/drivenact.json}"
+OUTPUT_BASE_DIR="${OUTPUT_BASE_DIR:-evaluation}"
+MAX_FRAMES="${MAX_FRAMES:-8}"
+GPU_ID="${GPU_ID:-0}"
+
+# Set GPU
+export CUDA_VISIBLE_DEVICES=${GPU_ID}
+
+# Passive evaluation
 python src/eval/eval_passive_dataset.py \
-    --model-path "Qwen/Qwen2.5-Omni-7B" \
-    --video_dir "/home/ubuntu/Test-India/kinect_color" \
-    --gt_file "dataset/drivenact.json" \
-    --output_dir "evaluation/drivenact_passive/perstream" \
+    --model-path "${MODEL_PATH}" \
+    --video_dir "${VIDEO_DIR}" \
+    --gt_file "${GT_FILE}" \
+    --output_dir "${OUTPUT_BASE_DIR}/drivenact_passive/perstream" \
     --output_name "pred" \
-    --num-chunks "1" \
-    --chunk_idx "0" \
-    --conv-mode "vicuna_v1" \
-    --include-memories \
-    --memory-types "type_1_memories" "type_2_memories" \
-    --memory-format "structured" \
-    --max-frames "8" \
-    --image-size "224" \
-    --video-extensions ".mp4" ".avi" ".mov" ".mkv" \
-    --api_key ${OPENAIKEY} \
-    --num_gpus 1
+    --max-frames "${MAX_FRAMES}" \
+    --api_key "${OPENAI_API_KEY:-${OPENAIKEY}}"
+
+# Proactive evaluation
+python src/eval/eval_proactive_dataset.py \
+    --model-path "${MODEL_PATH}" \
+    --video_dir "${VIDEO_DIR}" \
+    --gt_file "${GT_FILE}" \
+    --output_dir "${OUTPUT_BASE_DIR}/drivenact_proactive/perstream" \
+    --output_name "pred" \
+    --api_key "${OPENAI_API_KEY}"

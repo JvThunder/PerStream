@@ -1,8 +1,11 @@
+import datetime
+import math
+
 import torch
 import numpy as np
 from PIL import Image
+
 from src.utils.perstream_utils import cosine_similarity, get_text_embedding
-import math
 
 def find_optimal_image_size(target_patches, patch_size=14):
     # Given the number of pooled patches (after 2x2 merge), calculate the image size
@@ -60,9 +63,6 @@ def proactive_user_query(model, processor, pmg, first_frame_embedding, short_ter
     # Create list to store visual vectors with their temporal ordering
     visual_vectors_with_time = []
 
-    # Add short-term memory embeddings (most recent, no timestamp)
-    # Treat these as "current" time for ordering purposes
-    import datetime
     current_time = datetime.datetime.now()
     for vec in short_term_memory_img_emb:
         visual_vectors_with_time.append({
@@ -100,7 +100,7 @@ def proactive_user_query(model, processor, pmg, first_frame_embedding, short_ter
         if verbose: print(f"Memory context length: {len(memory_context)} characters")
     else:
         memory_context = "No relevant memories found."
-        if verbose: print("❌ No relevant memories retrieved")
+        if verbose: print("No relevant memories retrieved")
 
     # Sort visual vectors by temporal ordering (oldest first)
     visual_vectors_with_time.sort(key=lambda x: x['created_at'])
@@ -129,7 +129,7 @@ def proactive_user_query(model, processor, pmg, first_frame_embedding, short_ter
     {memory_context}
 
     Provide a helpful proactive response based on the memories and context.
-    Output [SILENT] if there is no need to say anything.
+    Output </silence> if there is no need to say anything.
     """
 
     if verbose: print(f"Generated proactive prompt length: {len(complete_prompt)} characters")

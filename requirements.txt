@@ -22,3 +22,6 @@ sentence_transformers
 tensorboardX
 torch>=2.0.0
 torchvision
+tqdm
+psutil
+tenacity

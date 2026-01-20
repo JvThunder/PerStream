@@ -151,15 +151,13 @@ def load_video_samples_from_questions(questions_file, video_dir, video_extension
 
 def create_alignment_dataset_from_videos(questions_file, video_dir, output_file, model_path,
                                         sentence_model_name='all-MiniLM-L6-v2', 
-                                        pool_size=(4, 4), num_gpus=1, max_samples=None,
+                                        pool_size=(4, 4), max_samples=None,
                                         image_size=224, video_extensions=['.mp4', '.avi', '.mkv'],
                                         video_start_before=0.5, video_end_after=0.5, save_every=100):
     """Create dataset of aligned vision and text embeddings from video timestamps."""
     # Load models
     print("Loading Qwen model...")
-    model_manager = MultiGPUModelManager(model_path, num_gpus=num_gpus)
-    model_manager.load_model_multi_gpu()
-    model, processor = model_manager.model, model_manager.processor
+    model, processor = load_model(model_path, device='cuda')
     
     print(f"Loading sentence transformer: {sentence_model_name}")
     sentence_model = SentenceTransformer(sentence_model_name)
@@ -194,11 +192,11 @@ def create_alignment_dataset_from_videos(questions_file, video_dir, output_file,
             # Generate caption for the frame
             caption = generate_buffer_caption([image], model, processor)
             print("Caption:")
-            print(generated_caption)
+            print(caption)
             print("-----------------------------------")
             
             # Get text embedding from caption
-            text_emb = sentence_model.encode(generated_caption, convert_to_numpy=True)
+            text_emb = sentence_model.encode(caption, convert_to_numpy=True)
             
             dataset.append({
                 'video_id': sample['video_id'],
@@ -235,7 +233,6 @@ def create_alignment_dataset_from_videos(questions_file, video_dir, output_file,
     with open(output_file.replace('.pt', '_metadata.json'), 'w') as f:
         json.dump(metadata, f, indent=2)
     
-    model_manager.unload_model()
     print("Dataset creation complete!")
     return metadata
 
@@ -329,7 +326,7 @@ def train_projection(data_file, output_model_path, batch_size=32, num_epochs=50,
                 'val_loss': val_loss,
                 'train_loss': train_loss
             }, output_model_path)
-            print(f"✓ Saved best model (val_loss: {val_loss:.4f})")
+            print(f"[OK] Saved best model (val_loss: {val_loss:.4f})")
     
     print(f"\nTraining complete! Best val loss: {best_val_loss:.4f}")
     print(f"Model saved to: {output_model_path}")
@@ -372,10 +369,10 @@ def test_projection_model(model, metadata, device='cuda'):
         assert aggregated.shape == (batch_size, output_dim), \
             f"Expected aggregated shape {(batch_size, output_dim)}, got {aggregated.shape}"
         
-        print(f"  ✓ Shapes verified!")
+        print(f"  [OK] Shapes verified!")
     
     print(f"\n{'='*60}")
-    print("ALL TESTS PASSED ✓")
+    print("ALL TESTS PASSED [OK]")
     print("="*60)
 
 if __name__ == "__main__":
@@ -391,14 +388,12 @@ if __name__ == "__main__":
     parser.add_argument("--output_model", type=str, default="projection_mlp.pt",
                        help="Path to save trained model")
     parser.add_argument("--model_path", type=str,
-                       default="/data2/joshua/codes/Flash-VStream/models/Qwen2.5-Omni-7B",
+                       default="Qwen/Qwen2.5-Omni-7B",
                        help="Path to Qwen model")
     parser.add_argument("--sentence_model", type=str, default="all-MiniLM-L6-v2",
                        help="Sentence transformer model name")
     parser.add_argument("--pool_size", type=int, default=4,
                        help="Pooling size (will use pool_size x pool_size)")
-    parser.add_argument("--num_gpus", type=int, default=1,
-                       help="Number of GPUs for dataset creation")
     parser.add_argument("--max_samples", type=int, default=None,
                        help="Max video samples to process (None = all)")
     parser.add_argument("--image_size", type=int, default=224,
@@ -429,7 +424,6 @@ if __name__ == "__main__":
             model_path=args.model_path,
             sentence_model_name=args.sentence_model,
             pool_size=(args.pool_size, args.pool_size),
-            num_gpus=args.num_gpus,
             max_samples=args.max_samples,
             image_size=args.image_size,
             video_extensions=args.video_extensions,
