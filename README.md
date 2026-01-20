@@ -218,6 +218,167 @@ Run reduction evaluation:
 bash scripts/reduction_eval.sh
 ```
 
+---
+
+## Using Your Own Dataset
+
+### Dataset Format
+
+Create a JSON file with the following structure:
+
+```json
+[
+  {
+    "participant_id": 1,
+    "video_id": "path/to/video_file",
+    "timestamp": "120.5",
+    "caption": "Description of the scene",
+    "split": "train",
+    "type_1_memories": [
+      "Short factual memory 1 (habits, preferences)",
+      "Short factual memory 2"
+    ],
+    "type_2_memories": [
+      "Longer narrative memory describing an episodic event...",
+      "Another episodic memory..."
+    ],
+    "type": "passive",
+    "question": "What did I do yesterday at the store?",
+    "answer": "You bought groceries and talked to the cashier about..."
+  }
+]
+```
+
+### Field Descriptions
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `participant_id` | int | Unique identifier for the participant |
+| `video_id` | string | Path to video file (relative or absolute) |
+| `timestamp` | string | Timestamp in seconds where the event occurs |
+| `caption` | string | Brief description of the current scene |
+| `split` | string | Dataset split: "train", "val", or "test" |
+| `type_1_memories` | list[str] | Short factual memories (habits, preferences, facts) |
+| `type_2_memories` | list[str] | Long narrative memories (episodic events) |
+| `type` | string | Query type: "passive" (user-initiated) or "proactive" (system-initiated) |
+| `question` | string | User query (for passive type) or context (for proactive) |
+| `answer` | string | Ground truth answer |
+
+### Memory Types
+
+- **Type 1 (Factual)**: Short, declarative statements about habits/preferences
+  - Example: "I keep snacks in my car.", "I prefer coffee over tea."
+
+- **Type 2 (Episodic)**: Longer narratives describing past events
+  - Example: "Last Tuesday, I accidentally left my umbrella at the coffee shop and had to go back the next day to retrieve it."
+
+### Video Requirements
+
+- **Format**: MP4, AVI, or other OpenCV-compatible formats
+- **Resolution**: 224p+ recommended (auto-resized during processing)
+- **Frame Rate**: Any (keyframes selected via optical flow)
+
+### Example: Creating a Custom Dataset
+
+```python
+import json
+
+dataset = [
+    {
+        "participant_id": 1,
+        "video_id": "videos/cooking_session_01.mp4",
+        "timestamp": "45.0",
+        "caption": "chopping vegetables on cutting board",
+        "split": "train",
+        "type_1_memories": [
+            "I am vegetarian.",
+            "I prefer organic vegetables.",
+            "I usually cook dinner at 7 PM."
+        ],
+        "type_2_memories": [
+            "Last week I tried a new recipe for vegetable stir-fry and it turned out great. I used extra garlic.",
+            "Two months ago I cut my finger while chopping onions and had to bandage it."
+        ],
+        "type": "passive",
+        "question": "What vegetables do I usually cook with?",
+        "answer": "Based on your memories, you typically cook with organic vegetables. You've recently made vegetable stir-fry with extra garlic."
+    }
+]
+
+with open("dataset/my_custom_dataset.json", "w") as f:
+    json.dump(dataset, f, indent=2)
+```
+
+### Running with Custom Dataset
+
+```bash
+# Training
+python -m src.train.train_perstream \
+    --dataset_path "dataset/my_custom_dataset.json" \
+
+# Evaluation
+python -m src.eval.eval_passive_dataset \
+    --dataset_path "dataset/my_custom_dataset.json"
+```
+
+## Configuration Parameters
+
+### Core PerStream PMG Parameters
+
+| Parameter | Default | Range | Description |
+|-----------|---------|-------|-------------|
+| `gamma_threshold` | 0.3 | 0.0-1.0 | Remember gate similarity threshold |
+| `delta_dfs_threshold` | 0.3 | 0.0-1.0 | PMG retrieval activation threshold |
+| `buffer_size` | 4 | 1-32 | Frames per processing batch |
+| `pool_size` | (8, 8) | (2,2)-(16,16) | Adaptive pooling patches |
+| `top_k` | 5 | 1-20 | Number of top memories to retrieve |
+| `queue_size` | 4 | 1-64 | Short-term memory FIFO size |
+
+### Generation Parameters
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `max_new_tokens` | 200 | Maximum generation length |
+| `temperature` | 1.0 (passive), 0.0 (proactive) | Sampling temperature |
+| `do_sample` | True/False | Enable/disable sampling |
+
+### Memory Reduction
+
+| Strategy | Description |
+|----------|-------------|
+| NSBG | Node Scan by Granularity: Process cold→hot nodes, remove fine→coarse storage |
+| GSBN | Granularity Scan by Node: Process fine→coarse granularities, remove cold→hot nodes |
+
+**Granularity Hierarchy** (finest to coarsest):
+1. `v_nearest`: Nearest visual vector (~1-10 MB/node)
+2. `v_mean`: Mean visual vector (~1-10 MB/node)
+3. `v_M`: Caption embedding (384-dim, ~1.5 KB/node)
+4. `M`: Raw text caption (~100-500 bytes/node)
+
+## Memory Categories
+
+The system organizes memories into 30 semantic categories:
+
+| Category Group | Categories |
+|----------------|------------|
+| Personal Identity | name, identification, vehicle, contact, education |
+| Basic Profile | nickname, age, physical, birth, employment |
+| Health/Medical | medical, health |
+| Transactions | transactions, financial, cards |
+| Daily Behavior | apps, schedule, browsing, mentioned, phrases |
+| Location | travel, location, places |
+| Social | relationships, birthdays, interests, addresses |
+| Personal Data | personal_interests, notes, media, app_data, contacts_list, chat, messages |
+
+## Model Information
+
+### Base Model
+
+- **Model**: Qwen2.5-Omni-7B
+- **Vision Encoder**: Spatial visual features (3584-dim)
+- **Language Decoder**: Text generation with memory context
+- **Projection**: 3584 → 384 dimensional alignment
+
 ## Script Descriptions
 
 This section provides detailed descriptions of each script in the `scripts/` directory and what they accomplish.
@@ -389,164 +550,3 @@ This section provides detailed descriptions of each script in the `scripts/` dir
 - `VIDEO_START_BEFORE` / `VIDEO_END_AFTER`: Video extraction window
 
 **Output**: Saves reduction evaluation results showing memory usage and performance metrics for each strategy.
-
----
-
-## Using Your Own Dataset
-
-### Dataset Format
-
-Create a JSON file with the following structure:
-
-```json
-[
-  {
-    "participant_id": 1,
-    "video_id": "path/to/video_file",
-    "timestamp": "120.5",
-    "caption": "Description of the scene",
-    "split": "train",
-    "type_1_memories": [
-      "Short factual memory 1 (habits, preferences)",
-      "Short factual memory 2"
-    ],
-    "type_2_memories": [
-      "Longer narrative memory describing an episodic event...",
-      "Another episodic memory..."
-    ],
-    "type": "passive",
-    "question": "What did I do yesterday at the store?",
-    "answer": "You bought groceries and talked to the cashier about..."
-  }
-]
-```
-
-### Field Descriptions
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `participant_id` | int | Unique identifier for the participant |
-| `video_id` | string | Path to video file (relative or absolute) |
-| `timestamp` | string | Timestamp in seconds where the event occurs |
-| `caption` | string | Brief description of the current scene |
-| `split` | string | Dataset split: "train", "val", or "test" |
-| `type_1_memories` | list[str] | Short factual memories (habits, preferences, facts) |
-| `type_2_memories` | list[str] | Long narrative memories (episodic events) |
-| `type` | string | Query type: "passive" (user-initiated) or "proactive" (system-initiated) |
-| `question` | string | User query (for passive type) or context (for proactive) |
-| `answer` | string | Ground truth answer |
-
-### Memory Types
-
-- **Type 1 (Factual)**: Short, declarative statements about habits/preferences
-  - Example: "I keep snacks in my car.", "I prefer coffee over tea."
-
-- **Type 2 (Episodic)**: Longer narratives describing past events
-  - Example: "Last Tuesday, I accidentally left my umbrella at the coffee shop and had to go back the next day to retrieve it."
-
-### Video Requirements
-
-- **Format**: MP4, AVI, or other OpenCV-compatible formats
-- **Resolution**: 224p+ recommended (auto-resized during processing)
-- **Frame Rate**: Any (keyframes selected via optical flow)
-
-### Example: Creating a Custom Dataset
-
-```python
-import json
-
-dataset = [
-    {
-        "participant_id": 1,
-        "video_id": "videos/cooking_session_01.mp4",
-        "timestamp": "45.0",
-        "caption": "chopping vegetables on cutting board",
-        "split": "train",
-        "type_1_memories": [
-            "I am vegetarian.",
-            "I prefer organic vegetables.",
-            "I usually cook dinner at 7 PM."
-        ],
-        "type_2_memories": [
-            "Last week I tried a new recipe for vegetable stir-fry and it turned out great. I used extra garlic.",
-            "Two months ago I cut my finger while chopping onions and had to bandage it."
-        ],
-        "type": "passive",
-        "question": "What vegetables do I usually cook with?",
-        "answer": "Based on your memories, you typically cook with organic vegetables. You've recently made vegetable stir-fry with extra garlic."
-    }
-]
-
-with open("dataset/my_custom_dataset.json", "w") as f:
-    json.dump(dataset, f, indent=2)
-```
-
-### Running with Custom Dataset
-
-```bash
-# Training
-python -m src.train.train_perstream \
-    --dataset_path "dataset/my_custom_dataset.json" \
-
-# Evaluation
-python -m src.eval.eval_passive_dataset \
-    --dataset_path "dataset/my_custom_dataset.json"
-```
-
-## Configuration Parameters
-
-### Core PerStream PMG Parameters
-
-| Parameter | Default | Range | Description |
-|-----------|---------|-------|-------------|
-| `gamma_threshold` | 0.3 | 0.0-1.0 | Remember gate similarity threshold |
-| `delta_dfs_threshold` | 0.3 | 0.0-1.0 | PMG retrieval activation threshold |
-| `buffer_size` | 4 | 1-32 | Frames per processing batch |
-| `pool_size` | (8, 8) | (2,2)-(16,16) | Adaptive pooling patches |
-| `top_k` | 5 | 1-20 | Number of top memories to retrieve |
-| `queue_size` | 4 | 1-64 | Short-term memory FIFO size |
-
-### Generation Parameters
-
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `max_new_tokens` | 200 | Maximum generation length |
-| `temperature` | 1.0 (passive), 0.0 (proactive) | Sampling temperature |
-| `do_sample` | True/False | Enable/disable sampling |
-
-### Memory Reduction
-
-| Strategy | Description |
-|----------|-------------|
-| NSBG | Node Scan by Granularity: Process cold→hot nodes, remove fine→coarse storage |
-| GSBN | Granularity Scan by Node: Process fine→coarse granularities, remove cold→hot nodes |
-
-**Granularity Hierarchy** (finest to coarsest):
-1. `v_nearest`: Nearest visual vector (~1-10 MB/node)
-2. `v_mean`: Mean visual vector (~1-10 MB/node)
-3. `v_M`: Caption embedding (384-dim, ~1.5 KB/node)
-4. `M`: Raw text caption (~100-500 bytes/node)
-
-## Memory Categories
-
-The system organizes memories into 30 semantic categories:
-
-| Category Group | Categories |
-|----------------|------------|
-| Personal Identity | name, identification, vehicle, contact, education |
-| Basic Profile | nickname, age, physical, birth, employment |
-| Health/Medical | medical, health |
-| Transactions | transactions, financial, cards |
-| Daily Behavior | apps, schedule, browsing, mentioned, phrases |
-| Location | travel, location, places |
-| Social | relationships, birthdays, interests, addresses |
-| Personal Data | personal_interests, notes, media, app_data, contacts_list, chat, messages |
-
-## Model Information
-
-### Base Model
-
-- **Model**: Qwen2.5-Omni-7B
-- **Vision Encoder**: Spatial visual features (3584-dim)
-- **Language Decoder**: Text generation with memory context
-- **Projection**: 3584 → 384 dimensional alignment
