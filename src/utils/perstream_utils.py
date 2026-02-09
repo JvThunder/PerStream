@@ -158,6 +158,147 @@ def get_triplet(
     
     return []
 
+def get_triplet_native(
+    memory,
+    model,
+    processor,
+    max_retries=3,
+    retry_delay=1,
+    verbose=False,
+    max_triplets=2
+):
+    """
+    Extract subject-predicate-object triplets using the model directly (no API calls).
+    
+    Args:
+        memory (str): Text to extract triplet from
+        model: The vision-language model to use for generation
+        processor: The processor for the model
+        max_retries (int): Maximum number of retry attempts (default: 3)
+        retry_delay (int): Delay between retries in seconds (default: 1)
+        verbose (bool): Whether to print debug information (default: False)
+        max_triplets (int): Maximum number of triplets to extract (default: 2)
+    
+    Returns:
+        list: List of tuples [(subject, predicate, object), ...] or empty list if all attempts fail
+    """
+    if verbose:
+        print(f"Processing memory: {memory}")
+    
+    prompt = f"""Extract up to {max_triplets} subject-predicate-object triplets from the following caption.
+Return a JSON array of objects, where each object has exactly three fields: "subject", "predicate", "object".
+Extract the most important relationships, prioritizing the main action and any secondary actions or relationships.
+
+The subject and object must only describe the noun itself. All other information (location, manner, instrument, etc.) should be in the predicate:
+- C picks a bottle from the shelf with his right hand. -> (C, picks from the shelf with right hand, a bottle)
+- C puts the bottle on the shelf -> (C, puts on the shelf, the bottle)
+- C opens the door and walks into the room -> [(C, opens, the door), (C, walks into, the room)]
+- Person holding in left hand a white cap with a logo and in right hand a paintbrush -> [(Person, holding in left hand, a white cap with a logo), (Person, holding in right hand, a paintbrush)]
+
+Caption: "{memory}"
+
+Response format (return up to {max_triplets} triplets):
+[
+    {{"subject": "...", "predicate": "...", "object": "..."}},
+    {{"subject": "...", "predicate": "...", "object": "..."}}
+]"""
+    
+    conversation = [{
+        "role": "system",
+        "content": "You are an expert at extracting semantic triplets from text. Always respond with valid JSON array only."
+    }, {
+        "role": "user",
+        "content": prompt
+    }]
+    
+    for attempt in range(max_retries):
+        try:
+            if verbose:
+                print(f"Attempt {attempt + 1}/{max_retries}")
+            
+            text_input = processor.apply_chat_template(conversation, tokenize=False, add_generation_prompt=True)
+            inputs = processor(text=text_input, return_tensors="pt").to(model.device)
+            
+            with torch.no_grad():
+                outputs = model.generate(
+                    **inputs,
+                    max_new_tokens=200,
+                    do_sample=False,
+                    temperature=0.1,
+                    pad_token_id=processor.tokenizer.eos_token_id,
+                    eos_token_id=processor.tokenizer.eos_token_id
+                )
+                response_text = processor.decode(outputs[0], skip_special_tokens=True)
+            
+            # Extract the assistant's response
+            if "assistant" in response_text:
+                response_text = response_text.split("assistant")[-1].strip()
+            else:
+                # If no "assistant" marker, try to find JSON array
+                response_text = response_text.strip()
+            
+            # Clean up markdown code blocks if present
+            response_text = re.sub(r'```json\s*', '', response_text)
+            response_text = re.sub(r'```\s*$', '', response_text)
+            response_text = response_text.strip()
+            
+            # Try to extract JSON array from response
+            json_match = re.search(r'\[.*\]', response_text, re.DOTALL)
+            if json_match:
+                response_text = json_match.group(0)
+            
+            triplet_list = json.loads(response_text)
+            
+            if not isinstance(triplet_list, list):
+                if verbose:
+                    print(f"Warning: Response is not a list on attempt {attempt + 1}")
+                if attempt == max_retries - 1:
+                    return []
+                time.sleep(retry_delay)
+                continue
+            
+            result = []
+            for triplet_data in triplet_list[:max_triplets]:
+                subject = str(triplet_data.get("subject", "")).strip()
+                predicate = str(triplet_data.get("predicate", "")).strip()
+                obj = str(triplet_data.get("object", "")).strip()
+                
+                if subject and predicate and obj:
+                    result.append((subject, predicate, obj))
+                    if verbose:
+                        print(f"Extracted triplet: ({subject}, {predicate}, {obj})")
+                elif verbose:
+                    print(f"Warning: Skipping incomplete triplet: {triplet_data}")
+            
+            if result:
+                if verbose:
+                    print(f"Successfully extracted {len(result)} triplet(s)")
+                return result
+            elif attempt < max_retries - 1:
+                time.sleep(retry_delay)
+                continue
+            else:
+                return []
+                    
+        except json.JSONDecodeError as e:
+            if verbose:
+                print(f"Attempt {attempt + 1}: JSON parsing error: {e}")
+                print(f"Response text: {response_text[:200] if 'response_text' in locals() else 'N/A'}")
+            if attempt == max_retries - 1:
+                return []
+            time.sleep(retry_delay)
+            continue
+                
+        except Exception as e:
+            if verbose:
+                print(f"Attempt {attempt + 1}: Error generating triplets: {e}")
+            if attempt == max_retries - 1:
+                return []
+            time.sleep(retry_delay)
+            continue
+    
+    return []
+
 def get_image_embedding(image, model, processor, pool_size=(4, 4), for_storage=False):
     """
     Extract embedding from single image.
@@ -225,6 +366,9 @@ def get_image_embedding(image, model, processor, pool_size=(4, 4), for_storage=F
 
         pool_h, pool_w = pool_size
         pooled_features = pooled_features.permute(0, 2, 3, 1).reshape(1, pool_h * pool_w, -1)
+        # Convert from bfloat16 to float32 before numpy conversion (numpy doesn't support bfloat16)
+        if pooled_features.dtype == torch.bfloat16:
+            pooled_features = pooled_features.float()
         pooled_embedding = pooled_features.reshape(pool_h * pool_w, -1).cpu().numpy()
 
     return pooled_embedding
@@ -234,9 +378,13 @@ def remember_gate(frame, memory_subclass_embedding_matrix, category_names, model
     """Remember gate using model - returns pooled embeddings"""
     # Get pooled embeddings for storage
     frame_embedding_pooled = get_image_embedding(frame, model, processor, for_storage=True, pool_size=pool_size)
-    frame_embedding_pooled_projected = projection_mlp(
+    projected = projection_mlp(
         torch.from_numpy(frame_embedding_pooled).float().to(model.device).unsqueeze(0)
-    ).cpu().detach().numpy()
+    ).cpu().detach()
+    # Convert from bfloat16 to float32 before numpy conversion
+    if projected.dtype == torch.bfloat16:
+        projected = projected.float()
+    frame_embedding_pooled_projected = projected.numpy()
 
     # Compute cosine similarities between frame_embedding_pooled and memory_subclass_embedding_matrix
     # frame_embedding_pooled: [num_patches, hidden_dim] e.g., [64, 3584] for 8x8 pooling

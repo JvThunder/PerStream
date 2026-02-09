@@ -53,7 +53,7 @@ def parse_args():
                        help="How to format memory context")
     
     # Video processing arguments (optimized defaults)
-    parser.add_argument("--max-frames", type=int, default=16, help="Maximum frames to extract per video (reduced for memory)")
+    parser.add_argument("--max-frames", type=int, default=8, help="Maximum frames to extract per video (reduced for memory)")
     parser.add_argument("--image-size", type=int, default=224, help="Image size for video frames")
     parser.add_argument("--video-extensions", nargs="+", default=[".mp4", ".avi", ".mov", ".mkv"],
                        help="Video file extensions to look for")
@@ -62,9 +62,9 @@ def parse_args():
     parser.add_argument("--target-fps", type=float, default=1, help="Target FPS for frame sampling (reduced for memory)")
     parser.add_argument("--api_key", type=str, default=None, help="Add key here: sk-proj...")
 
-    parser.add_argument("--rho", type=float, default=0.3, help="Rho PMG")
-    parser.add_argument("--delta", type=float, default=0.3, help="Delta PMG")
-    parser.add_argument("--topk", type=int, default=1, help="Top-K PMG")
+    parser.add_argument("--rho", type=float, default=0.6, help="Rho PMG")
+    parser.add_argument("--delta", type=float, default=0.6, help="Delta PMG")
+    parser.add_argument("--topk", type=int, default=5, help="Top-K PMG")
 
     return parser.parse_args()
 
@@ -96,7 +96,6 @@ def get_model_name_from_path(model_path):
 
 def process_memory(memory, api_key, memory_subclass_embedding_matrix, category_names, pmg):
     try:
-        print(f"Processing Memory: {memory}")
         triplets = get_triplet(memory, api_key=api_key)
         memory_vector = get_text_embedding(memory)
         best_match_category = get_best_match_category(memory_vector, memory_subclass_embedding_matrix, category_names)
@@ -112,9 +111,8 @@ def process_memory(memory, api_key, memory_subclass_embedding_matrix, category_n
                     "caption_embedding": memory_vector
                 }
             )
-        return f"Success: {memory}"
     except Exception as e:
-        return f"[ERROR] Memory '{memory}' failed with: {e}"
+        print(f"[ERROR] Memory '{memory}' failed with: {e}")
 
 def run_inference(args):
     """
@@ -167,11 +165,7 @@ def run_inference(args):
         except Exception as e:
             print(f'mkdir Except: {e}')
 
-    if args.num_chunks > 1:
-        output_name = f"{args.output_name}_{args.num_chunks}_{args.chunk_idx}"
-    else:
-        output_name = args.output_name
-    
+    output_name = args.output_name
     answers_file = os.path.join(args.output_dir, f"{output_name}.json")
     
     # Resume from old experiment
@@ -214,66 +208,44 @@ def run_inference(args):
                     )
                     for memory in memories
                 ]
-            
-                for f in as_completed(futures):
-                    print(f.result())
 
             print("Start Inference...")
             with torch.inference_mode():
-                # Start total timer
-                total_start = time.time()
-
                 # -----------------------------
                 # 1. Generate caption
                 # -----------------------------
-                t0 = time.time()
                 buffer_caption = generate_buffer_caption(video_tensors, model, processor)
-                t1 = time.time()
-                print(f"[DEBUG] Caption generation took {t1 - t0:.2f}s")
 
                 # -----------------------------
                 # 2. Triplet extraction
                 # -----------------------------
-                t0 = time.time()
                 triplets = get_triplet(buffer_caption, api_key=args.api_key)
-                t1 = time.time()
-                print(f"[DEBUG] Triplet extraction took {t1 - t0:.2f}s")
 
                 # -----------------------------
                 # 3. Caption embedding
                 # -----------------------------
-                t0 = time.time()
                 buffer_caption_vector = get_text_embedding(buffer_caption)
-                t1 = time.time()
-                print(f"[DEBUG] Caption embedding took {t1 - t0:.2f}s")
 
                 # -----------------------------
                 # 4. Category matching
                 # -----------------------------
-                t0 = time.time()
                 best_match_category = get_best_match_category(
                     buffer_caption_vector,
                     memory_subclass_embedding_matrix,
                     category_names
                 )
-                t1 = time.time()
-                print(f"[DEBUG] Category matching took {t1 - t0:.2f}s")
 
                 # -----------------------------
                 # 5. Frame embedding
                 # -----------------------------
-                t0 = time.time()
                 frame_list = []
                 for frame in video_tensors:
                     frame_emb = get_image_embedding(frame, model, processor, for_storage=True, pool_size=(8,8))
                     frame_list.append(frame_emb)
-                t1 = time.time()
-                print(f"[DEBUG] Frame embedding ({len(video_tensors)} frames) took {t1 - t0:.2f}s")
 
                 # -----------------------------
                 # 6. PMG triplet creation
                 # -----------------------------
-                t0 = time.time()
                 for triplet in triplets:
                     subject, predicate, obj = triplet
                     subj_id, edge_id, obj_id = pmg.create(
@@ -286,13 +258,11 @@ def run_inference(args):
                             "caption_embedding": buffer_caption_vector
                         }
                     )
-                t1 = time.time()
-                print(f"[DEBUG] PMG triplet creation took {t1 - t0:.2f}s")
                 
                 # -----------------------------
                 # 7. Passive user query
                 # -----------------------------
-                t0 = time.time()
+                start_time = time.time()
                 outputs, retrieval_time = passive_user_query(
                     model=model, 
                     processor=processor, 
@@ -302,17 +272,11 @@ def run_inference(args):
                     output_retrieval_time=True,
                     top_k=args.topk
                 )
-                t1 = time.time()
-                latency = t1 - t0
-                print(f"[DEBUG] Passive user query took {t1 - t0:.2f}s")
-
+                
                 # -----------------------------
                 # Total time
                 # -----------------------------
-                total_end = time.time()
-                print(f"[DEBUG] Total pipeline time: {total_end - total_start:.2f}s")
-
-                latency = total_end - total_start
+                latency = time.time() - start_time
                 allocated_gb = torch.cuda.memory_allocated() / 1024**3
                 
                 sample_set = {

@@ -88,9 +88,18 @@ class MemoryDataset(Dataset):
             processed_frames = []
             for i in range(sampled_frames.size(0)):
                 frame = sampled_frames[i]  # Shape: (H, W, C)
-                
+
                 # Convert to PIL Image for resizing
-                frame_pil = Image.fromarray(frame.numpy())
+                # Handle bfloat16 - convert to float32 first as numpy doesn't support bfloat16
+                if frame.dtype == torch.bfloat16:
+                    frame = frame.float()
+                frame_np = frame.numpy()
+                # Ensure values are in [0, 255] range for uint8 conversion
+                if frame_np.max() <= 1.0:
+                    frame_np = (frame_np * 255).astype(np.uint8)
+                else:
+                    frame_np = frame_np.astype(np.uint8)
+                frame_pil = Image.fromarray(frame_np)
                 
                 # Resize to smaller size if in low memory mode
                 target_size = self.image_size // 2 if self.low_memory else self.image_size
@@ -159,8 +168,10 @@ class MemoryDataset(Dataset):
             'memories': memories_list,
             'video_tensor': video_tensor,
             'video_id': video_id,
+            'timestamp': sample.get('timestamp', None),
             'question': qs,
-            'answer': sample.get('answer', '')
+            'answer': sample.get('answer', ''),
+            'sample_id': f"{video_id}_{timestamp}"
         }
 
     def __len__(self):
