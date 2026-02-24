@@ -17,7 +17,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, wearing a black jacket, and reaching for snacks, which aligns with their memories of keeping snacks and drinks in the car. There is no immediate danger visible, such as driving or handling hazardous items. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person in a car, wearing a black jacket, and reaching for snacks, which aligns with their memories of keeping snacks and drinks in the car. There is no immediate danger visible, such as driving or handling hazardous items. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.3)"
+    ]
   },
   {
     "participant_id": 1,
@@ -41,7 +47,11 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is eating from a yellow bag while in the car, which aligns with their memory of keeping snacks in the car. However, eating while driving can be distracting and potentially dangerous. Given the context, a proactive warning about the risks of distracted driving could be beneficial.\n\nBet: $6"
+    "justification": "The person is eating from a yellow bag while in the car, which aligns with their memory of keeping snacks in the car. However, eating while driving can be distracting and potentially dangerous. Given the context, a proactive warning about the risks of distracted driving could be beneficial.\n\nBet: $6",
+    "reference": [
+      "(M1.1)",
+      "(M1.5)"
+    ]
   },
   {
     "participant_id": 1,
@@ -78,7 +88,11 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road; using your phone while driving can be risky.\"",
-    "justification": "The frames show the person using a phone while in the car, which aligns with their memory of frequently using the phone while driving. This behavior can be distracting and potentially dangerous if the car is in motion. A proactive warning about the risks of phone use while driving would be appropriate to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person using a phone while in the car, which aligns with their memory of frequently using the phone while driving. This behavior can be distracting and potentially dangerous if the car is in motion. A proactive warning about the risks of phone use while driving would be appropriate to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.18)"
+    ]
   },
   {
     "participant_id": 1,
@@ -125,7 +139,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, engaged in a phone call. Given the memories, they frequently use their phone while driving, which can be distracting and dangerous. Although the car appears to be stationary, it's important to ensure they remain focused on driving when the car is in motion. A proactive warning about the risks of phone use while driving could be beneficial.\n\nBet: $6"
+    "justification": "The frames show the person in a car, engaged in a phone call. Given the memories, they frequently use their phone while driving, which can be distracting and dangerous. Although the car appears to be stationary, it's important to ensure they remain focused on driving when the car is in motion. A proactive warning about the risks of phone use while driving could be beneficial.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.18)",
+      "(M1.23)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 1,
@@ -177,7 +197,20 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person drinking from a bottle while in the driver's seat, which aligns with their memory of drinking water while driving. Although this is a common behavior, it can be distracting, especially if the car is in motion. Given the potential for distraction, a proactive warning about staying focused on the road might be beneficial.\n\nBet: $6"
+    "justification": "The frames show the person drinking from a bottle while in the driver's seat, which aligns with their memory of drinking water while driving. Although this is a common behavior, it can be distracting, especially if the car is in motion. Given the potential for distraction, a proactive warning about staying focused on the road might be beneficial.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.8)",
+      "(M1.12)",
+      "(M1.17)",
+      "(M1.22)",
+      "(M1.23)",
+      "(M1.27)",
+      "(M1.28)",
+      "(M1.29)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 1,
@@ -232,7 +265,22 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person drinking water while in the car, which aligns with their habit of staying hydrated during drives. However, given their past experience of spilling water, a proactive warning to ensure the bottle is securely closed after drinking could prevent potential distractions or spills. \n\nBet: $5"
+    "justification": "The frames show the person drinking water while in the car, which aligns with their habit of staying hydrated during drives. However, given their past experience of spilling water, a proactive warning to ensure the bottle is securely closed after drinking could prevent potential distractions or spills. \n\nBet: $5",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.8)",
+      "(M1.12)",
+      "(M1.17)",
+      "(M1.22)",
+      "(M1.23)",
+      "(M1.27)",
+      "(M1.28)",
+      "(M1.29)",
+      "(M1.33)",
+      "(M1.34)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 1,
@@ -255,7 +303,12 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Stay focused on the road while enjoying those banana chips; remember how you laughed when you spilled them in the car last week!\"",
-    "justification": "The frames show the person eating banana chips while driving a car with a manual gear shift. This could be distracting, especially since manual driving requires frequent gear changes. Given the potential for distraction and the risk of dropping snacks, a proactive warning about maintaining focus on driving is advisable.\n\nBet: $8"
+    "justification": "The frames show the person eating banana chips while driving a car with a manual gear shift. This could be distracting, especially since manual driving requires frequent gear changes. Given the potential for distraction and the risk of dropping snacks, a proactive warning about maintaining focus on driving is advisable.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)"
+    ]
   },
   {
     "participant_id": 1,
@@ -281,7 +334,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person handling a bag of snacks while in a car with a manual gear shift. Given their preference for eating snacks while driving, there is a potential risk of distraction, especially with manual transmission requiring more attention. A proactive warning about the dangers of eating while driving, particularly with manual gear shifts, could be beneficial.\n\nBet: $6"
+    "justification": "The frames show the person handling a bag of snacks while in a car with a manual gear shift. Given their preference for eating snacks while driving, there is a potential risk of distraction, especially with manual transmission requiring more attention. A proactive warning about the dangers of eating while driving, particularly with manual gear shifts, could be beneficial.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M2.1)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 1,
@@ -355,7 +418,16 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road; reading the newspaper while driving can be as distracting as using your phone.\"",
-    "justification": "The frames show the person handling a newspaper while in the driver's seat, which suggests they might be reading while driving. Given their habit of using the phone while driving and the potential distraction from reading, this could pose a safety risk. It's important to ensure full attention is on the road, especially with a manual transmission vehicle.\n\nBet: $8"
+    "justification": "The frames show the person handling a newspaper while in the driver's seat, which suggests they might be reading while driving. Given their habit of using the phone while driving and the potential distraction from reading, this could pose a safety risk. It's important to ensure full attention is on the road, especially with a manual transmission vehicle.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.14)"
+    ]
   },
   {
     "participant_id": 1,
@@ -400,7 +472,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person using a laptop in the car, which aligns with their habit of working from the car. Given the manual transmission, it's crucial to ensure the car is parked to avoid distractions while using the laptop. Since there's no indication of the car moving, a proactive warning isn't necessary, but it's important to remain cautious.\n\nBet: $3"
+    "justification": "The frames show the person using a laptop in the car, which aligns with their habit of working from the car. Given the manual transmission, it's crucial to ensure the car is parked to avoid distractions while using the laptop. Since there's no indication of the car moving, a proactive warning isn't necessary, but it's important to remain cautious.\n\nBet: $3",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.9)",
+      "(M1.18)",
+      "(M1.23)"
+    ]
   },
   {
     "participant_id": 1,
@@ -452,7 +533,20 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person sitting in the driver's seat, wearing sunglasses, and appearing relaxed. Given the memories, the person has a habit of using their phone while driving, which can be dangerous. Since they are currently parked, no immediate warning is necessary, but a reminder to avoid phone use while driving could be beneficial.\n\nBet: $4"
+    "justification": "The frames show the person sitting in the driver's seat, wearing sunglasses, and appearing relaxed. Given the memories, the person has a habit of using their phone while driving, which can be dangerous. Since they are currently parked, no immediate warning is necessary, but a reminder to avoid phone use while driving could be beneficial.\n\nBet: $4",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.6)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.14)",
+      "(M1.19)",
+      "(M1.20)",
+      "(M1.25)",
+      "(M1.29)",
+      "(M1.31)"
+    ]
   },
   {
     "participant_id": 1,
@@ -511,7 +605,20 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, possibly preparing to drive, as they put on sunglasses. Given their habit of using a phone while driving and the presence of a laptop, there is a potential risk of distraction. It would be prudent to remind them to focus on the road and avoid multitasking while driving.\n\nBet: $6"
+    "justification": "The frames show the person in a car, possibly preparing to drive, as they put on sunglasses. Given their habit of using a phone while driving and the presence of a laptop, there is a potential risk of distraction. It would be prudent to remind them to focus on the road and avoid multitasking while driving.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.6)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.14)",
+      "(M1.19)",
+      "(M1.23)",
+      "(M1.33)",
+      "(M1.36)",
+      "(M1.39)"
+    ]
   },
   {
     "participant_id": 2,
@@ -530,7 +637,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person eating while driving, which aligns with their preference for eating in the car. However, this behavior can be distracting and potentially dangerous, especially if they need to react quickly to road conditions. Given the previous incident of spilling coffee, there's a risk of similar distractions occurring.\n\nBet: $6"
+    "justification": "The frames show the person eating while driving, which aligns with their preference for eating in the car. However, this behavior can be distracting and potentially dangerous, especially if they need to react quickly to road conditions. Given the previous incident of spilling coffee, there's a risk of similar distractions occurring.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 2,
@@ -553,7 +666,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person drinking from a water bottle while driving, which aligns with their preference for staying hydrated. However, this action can momentarily distract them from the road, increasing the risk of an accident. Given the potential danger of distracted driving, a proactive warning about maintaining focus on the road is advisable.\n\nBet: $6"
+    "justification": "The frames show the person drinking from a water bottle while driving, which aligns with their preference for staying hydrated. However, this action can momentarily distract them from the road, increasing the risk of an accident. Given the potential danger of distracted driving, a proactive warning about maintaining focus on the road is advisable.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.4)",
+      "(M1.6)",
+      "(M1.7)"
+    ]
   },
   {
     "participant_id": 2,
@@ -586,7 +708,20 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person adjusting their sunglasses and interacting with the multimedia display while driving. Given their preference for engaging with the multimedia display and the potential distraction it poses, a proactive warning about maintaining focus on the road could be beneficial. This is especially important as they are driving a manual transmission vehicle, which requires more attention.\n\nBet: $6"
+    "justification": "The frames show the person adjusting their sunglasses and interacting with the multimedia display while driving. Given their preference for engaging with the multimedia display and the potential distraction it poses, a proactive warning about maintaining focus on the road could be beneficial. This is especially important as they are driving a manual transmission vehicle, which requires more attention.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.13)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 2,
@@ -624,7 +759,16 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to stay focused on the road; using your phone while driving a manual can be risky, especially after that call with your mom when you got distracted.\"",
-    "justification": "The frames show the person using a phone while driving, which aligns with their habit of frequently using the phone for calls. Given the manual transmission, this can be particularly distracting and dangerous, especially if they need to shift gears. A proactive warning about the risks of phone use while driving is advisable to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person using a phone while driving, which aligns with their habit of frequently using the phone for calls. Given the manual transmission, this can be particularly distracting and dangerous, especially if they need to shift gears. A proactive warning about the risks of phone use while driving is advisable to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.7)",
+      "(M1.13)",
+      "(M1.15)",
+      "(M1.19)",
+      "(M2.3)"
+    ]
   },
   {
     "participant_id": 2,
@@ -693,7 +837,15 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Make sure the car is parked before diving into that magazine; remember how you love reading them at scenic lookouts when it's safe.\"",
-    "justification": "The frames show the person sitting in the driver's seat, reading a magazine. Given the context of being in a car, it's crucial to ensure the vehicle is stationary and safely parked before engaging in activities like reading. If the car is in motion, this behavior could be dangerous as it distracts from driving. A proactive warning is advisable to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person sitting in the driver's seat, reading a magazine. Given the context of being in a car, it's crucial to ensure the vehicle is stationary and safely parked before engaging in activities like reading. If the car is in motion, this behavior could be dangerous as it distracts from driving. A proactive warning is advisable to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M2.1)",
+      "(M2.2)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 2,
@@ -720,7 +872,18 @@
     ],
     "type": "proactive",
     "answer": "</response> Remember to keep your focus on the road and avoid eating while driving—recall the time you spilled chips all over the passenger seat!",
-    "justification": "The frames show the person in the driver's seat, wearing a black jacket over a checkered shirt, and handling food items. Given their tendency to multitask, such as eating while driving, there is a potential risk of distraction. This aligns with their past experiences of spilling food, which could lead to unsafe driving conditions.\n\nProactive warning: It is advisable to avoid eating while driving to maintain full attention on the road.\n\nBet: $8"
+    "justification": "The frames show the person in the driver's seat, wearing a black jacket over a checkered shirt, and handling food items. Given their tendency to multitask, such as eating while driving, there is a potential risk of distraction. This aligns with their past experiences of spilling food, which could lead to unsafe driving conditions.\n\nProactive warning: It is advisable to avoid eating while driving to maintain full attention on the road.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.4)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 2,
@@ -753,7 +916,16 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember how you spilled sauce on your shirt a couple of weeks ago? Be careful while eating in the car to avoid distractions.\"",
-    "justification": "The frames show the person in the driver's seat, holding food and a drink, which aligns with their tendency to multitask by eating while driving. This behavior can be distracting and potentially dangerous, especially if the vehicle is in motion. Given the context, a proactive warning about the risks of eating while driving is advisable to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person in the driver's seat, holding food and a drink, which aligns with their tendency to multitask by eating while driving. This behavior can be distracting and potentially dangerous, especially if the vehicle is in motion. Given the context, a proactive warning about the risks of eating while driving is advisable to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.4)",
+      "(M1.6)",
+      "(M1.8)",
+      "(M1.10)",
+      "(M1.11)"
+    ]
   },
   {
     "participant_id": 2,
@@ -787,7 +959,21 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in the driver's seat, wearing a black jacket over a plaid shirt, and handling a snack bag. This aligns with their tendency to multitask and eat while driving. Given the potential distraction from eating while driving, a proactive warning about maintaining focus on the road would be prudent.\n\nBet: $8"
+    "justification": "The frames show the person in the driver's seat, wearing a black jacket over a plaid shirt, and handling a snack bag. This aligns with their tendency to multitask and eat while driving. Given the potential distraction from eating while driving, a proactive warning about maintaining focus on the road would be prudent.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.4)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.8)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 2,
@@ -851,7 +1037,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person entering the car and putting on a jacket while seated. Given the memories, they often juggle items like snacks and coffee, which can be distracting. The presence of a pastry on the console suggests a potential for distraction or spillage, especially if they start driving immediately after putting on the jacket. A proactive warning to ensure all items are secure before driving could prevent accidents.\n\nBet: $6"
+    "justification": "The frames show the person entering the car and putting on a jacket while seated. Given the memories, they often juggle items like snacks and coffee, which can be distracting. The presence of a pastry on the console suggests a potential for distraction or spillage, especially if they start driving immediately after putting on the jacket. A proactive warning to ensure all items are secure before driving could prevent accidents.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.6)"
+    ]
   },
   {
     "participant_id": 3,
@@ -878,7 +1071,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person entering the car while holding a black jacket, consistent with their memory of often wearing one. There is a pastry on the console, which aligns with their habit of enjoying snacks while driving. However, the person appears to be in a rush, which might lead to the pastry falling, similar to a past incident. A gentle reminder to secure items before driving could prevent a mess or distraction.\n\nBet: $4"
+    "justification": "The frames show the person entering the car while holding a black jacket, consistent with their memory of often wearing one. There is a pastry on the console, which aligns with their habit of enjoying snacks while driving. However, the person appears to be in a rush, which might lead to the pastry falling, similar to a past incident. A gentle reminder to secure items before driving could prevent a mess or distraction.\n\nBet: $4",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.10)"
+    ]
   },
   {
     "participant_id": 3,
@@ -954,7 +1157,15 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road, especially with the manual transmission—reading the newspaper can wait until you're parked.\"",
-    "justification": "The frames show the person handling a newspaper while seated in a car with a manual transmission. Given the memories, the person enjoys reading in the car, but handling a newspaper while driving can be distracting and dangerous. It's important to ensure full attention on the road, especially with a manual transmission that requires frequent gear shifting.\n\nBet: $8"
+    "justification": "The frames show the person handling a newspaper while seated in a car with a manual transmission. Given the memories, the person enjoys reading in the car, but handling a newspaper while driving can be distracting and dangerous. It's important to ensure full attention on the road, especially with a manual transmission that requires frequent gear shifting.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.7)",
+      "(M1.13)",
+      "(M1.17)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 3,
@@ -1050,7 +1261,18 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person driving a car with a manual transmission, wearing a graphic t-shirt and jeans, consistent with their general habits. A pastry is visible, aligning with their enjoyment of snacks while driving. The person appears to be adjusting something above, possibly the rearview mirror or a sun visor. Given the context, there is no immediate danger, but a reminder to keep attention on the road and avoid distractions could be beneficial.\n\nBet: $3"
+    "justification": "The frames show the person driving a car with a manual transmission, wearing a graphic t-shirt and jeans, consistent with their general habits. A pastry is visible, aligning with their enjoyment of snacks while driving. The person appears to be adjusting something above, possibly the rearview mirror or a sun visor. Given the context, there is no immediate danger, but a reminder to keep attention on the road and avoid distractions could be beneficial.\n\nBet: $3",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.7)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.15)",
+      "(M1.17)",
+      "(M1.24)",
+      "(M2.7)"
+    ]
   },
   {
     "participant_id": 3,
@@ -1102,7 +1324,19 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a relaxed driving position, holding an energy drink, and reaching for a pastry. Given the memories, this aligns with their habit of eating and drinking while driving. However, reaching for items can be distracting and potentially dangerous, especially in a manually operated vehicle. A proactive warning about maintaining focus on the road and minimizing distractions would be prudent.\n\nBet: $8"
+    "justification": "The frames show the person in a relaxed driving position, holding an energy drink, and reaching for a pastry. Given the memories, this aligns with their habit of eating and drinking while driving. However, reaching for items can be distracting and potentially dangerous, especially in a manually operated vehicle. A proactive warning about maintaining focus on the road and minimizing distractions would be prudent.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.10)",
+      "(M1.13)",
+      "(M1.21)",
+      "(M1.22)",
+      "(M1.28)",
+      "(M1.31)"
+    ]
   },
   {
     "participant_id": 3,
@@ -1129,7 +1363,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person drinking from a water bottle while driving, which aligns with their habit of staying hydrated on the go. However, handling a bottle while driving can be distracting and potentially dangerous, especially if the bottle spills, as mentioned in their memories. A proactive warning to ensure the bottle is securely closed and to minimize distractions while driving would be beneficial.\n\nBet: $6"
+    "justification": "The frames show the person drinking from a water bottle while driving, which aligns with their habit of staying hydrated on the go. However, handling a bottle while driving can be distracting and potentially dangerous, especially if the bottle spills, as mentioned in their memories. A proactive warning to ensure the bottle is securely closed and to minimize distractions while driving would be beneficial.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.8)"
+    ]
   },
   {
     "participant_id": 3,
@@ -1164,7 +1404,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person reading a newspaper while seated in the car, which aligns with their habit of multitasking and reading in the car. However, if the car is in motion, this could be dangerous as it distracts from driving. If the car is parked, no warning is needed. Given the context, a proactive warning is advisable if the car is moving.\n\nBet: $8"
+    "justification": "The frames show the person reading a newspaper while seated in the car, which aligns with their habit of multitasking and reading in the car. However, if the car is in motion, this could be dangerous as it distracts from driving. If the car is parked, no warning is needed. Given the context, a proactive warning is advisable if the car is moving.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.13)",
+      "(M1.17)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 3,
@@ -1207,7 +1454,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person multitasking in the car, using a laptop and phone simultaneously. Given their habit of multitasking and previous experiences of dropping items or struggling to balance them, there's a risk of distraction. A proactive warning to focus on one task at a time could prevent potential mishaps.\n\nBet: $6"
+    "justification": "The frames show the person multitasking in the car, using a laptop and phone simultaneously. Given their habit of multitasking and previous experiences of dropping items or struggling to balance them, there's a risk of distraction. A proactive warning to focus on one task at a time could prevent potential mishaps.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.17)",
+      "(M1.20)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1227,7 +1480,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person eating snacks while driving, which aligns with their memories of enjoying snacks during drives. Given their past experience of spilling popcorn, there is a risk of distraction or another spill, which could be hazardous while driving. A proactive warning about the dangers of eating while driving would be prudent.\n\nBet: $8"
+    "justification": "The frames show the person eating snacks while driving, which aligns with their memories of enjoying snacks during drives. Given their past experience of spilling popcorn, there is a risk of distraction or another spill, which could be hazardous while driving. A proactive warning about the dangers of eating while driving would be prudent.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M2.1)",
+      "(M2.2)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1251,7 +1511,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person eating while driving, which aligns with their general habit of eating snacks in the car. This behavior can be distracting, especially when steering with one hand, increasing the risk of an accident. Given the past incident of spilling soda, there's a potential for similar mishaps that could divert attention from driving.\n\nBet: $6"
+    "justification": "The frames show the person eating while driving, which aligns with their general habit of eating snacks in the car. This behavior can be distracting, especially when steering with one hand, increasing the risk of an accident. Given the past incident of spilling soda, there's a potential for similar mishaps that could divert attention from driving.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.5)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1281,7 +1546,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person appears to be opening a can while seated in the car, which aligns with their preference for drinks in cans. Given their past experiences with drinks spilling in the car, there is a risk of a similar incident occurring. A proactive warning to be cautious while opening the can to avoid spills would be prudent.\n\nI bet $6 on this."
+    "justification": "The person appears to be opening a can while seated in the car, which aligns with their preference for drinks in cans. Given their past experiences with drinks spilling in the car, there is a risk of a similar incident occurring. A proactive warning to be cautious while opening the can to avoid spills would be prudent.\n\nI bet $6 on this.",
+    "reference": [
+      "(M1.1)",
+      "(M1.5)",
+      "(M1.7)",
+      "(M1.10)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1316,7 +1588,17 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep both hands on the wheel as much as possible; you don't want a repeat of that iced coffee spill!\"",
-    "justification": "The frames show the person opening and drinking from a bottle while driving, which aligns with their habit of consuming beverages in the car. Given the manual transmission, this could be risky as it requires both hands for optimal control. A proactive warning about the potential distraction and the need to maintain focus on driving would be prudent.\n\nBet: $8"
+    "justification": "The frames show the person opening and drinking from a bottle while driving, which aligns with their habit of consuming beverages in the car. Given the manual transmission, this could be risky as it requires both hands for optimal control. A proactive warning about the potential distraction and the need to maintain focus on driving would be prudent.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.5)",
+      "(M1.9)",
+      "(M1.10)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.16)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1358,7 +1640,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is in a parked car, wearing a seatbelt, and appears to be interacting with the multimedia display. Given their history of using the multimedia system for various activities, this situation seems routine and safe. There is no immediate danger or distraction from driving, so no proactive warning is needed.\n\nBet: $2"
+    "justification": "The person is in a parked car, wearing a seatbelt, and appears to be interacting with the multimedia display. Given their history of using the multimedia system for various activities, this situation seems routine and safe. There is no immediate danger or distraction from driving, so no proactive warning is needed.\n\nBet: $2",
+    "reference": [
+      "(M1.4)",
+      "(M1.17)",
+      "(M1.18)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1400,7 +1688,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a parked car, wearing a seatbelt, and holding a magazine. Given the memories, this aligns with their habit of reading in the car during downtime. Since the car is stationary and the person is not actively driving, there is no immediate safety concern. Therefore, no proactive warning is necessary.\n\nI bet $2 on this."
+    "justification": "The frames show the person in a parked car, wearing a seatbelt, and holding a magazine. Given the memories, this aligns with their habit of reading in the car during downtime. Since the car is stationary and the person is not actively driving, there is no immediate safety concern. Therefore, no proactive warning is necessary.\n\nI bet $2 on this.",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.18)",
+      "(M1.21)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1447,7 +1741,16 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road and avoid using your phone while driving; safety first!\"",
-    "justification": "The frames show the person interacting with their phone while driving, which is a distraction and can be dangerous. Given the person's tendency to frequently interact with their phone in the car, a proactive warning about the risks of distracted driving is advisable. Ensuring attention remains on the road is crucial for safety.\n\nBet: $8"
+    "justification": "The frames show the person interacting with their phone while driving, which is a distraction and can be dangerous. Given the person's tendency to frequently interact with their phone in the car, a proactive warning about the risks of distracted driving is advisable. Ensuring attention remains on the road is crucial for safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.5)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.21)",
+      "(M1.24)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1499,7 +1802,21 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person using a phone while in the driver's seat, which aligns with their memory of frequently interacting with their phone in the car. Although they are parked, as indicated by the stationary gearshift, using a phone can still be distracting. Given their history of phone use while driving, a proactive warning about the risks of phone distraction is advisable.\n\nBet: $6"
+    "justification": "The frames show the person using a phone while in the driver's seat, which aligns with their memory of frequently interacting with their phone in the car. Although they are parked, as indicated by the stationary gearshift, using a phone can still be distracting. Given their history of phone use while driving, a proactive warning about the risks of phone distraction is advisable.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.18)",
+      "(M1.21)",
+      "(M1.22)",
+      "(M1.24)",
+      "(M1.29)",
+      "(M1.31)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1561,7 +1878,27 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road; reading while driving can be risky.\"",
-    "justification": "The frames show the person reading a newspaper while in the driver's seat, which suggests they might be multitasking while driving. Given their tendency to read while in the car, this could be a distraction and pose a safety risk if the vehicle is in motion. A proactive warning about the dangers of distracted driving is advisable.\n\nBet: $8"
+    "justification": "The frames show the person reading a newspaper while in the driver's seat, which suggests they might be multitasking while driving. Given their tendency to read while in the car, this could be a distraction and pose a safety risk if the vehicle is in motion. A proactive warning about the dangers of distracted driving is advisable.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.18)",
+      "(M1.21)",
+      "(M1.22)",
+      "(M1.29)",
+      "(M1.33)",
+      "(M1.34)",
+      "(M1.37)",
+      "(M1.38)",
+      "(M1.39)",
+      "(M1.40)",
+      "(M1.42)",
+      "(M1.43)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1583,7 +1920,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person sitting in the driver's seat, appearing to put on sunglasses. This aligns with their habit of wearing sunglasses while driving, as mentioned in their memories. There is no immediate indication of danger or need for a proactive warning, as the action seems routine and safe.\n\nBet: $2"
+    "justification": "The frames show the person sitting in the driver's seat, appearing to put on sunglasses. This aligns with their habit of wearing sunglasses while driving, as mentioned in their memories. There is no immediate indication of danger or need for a proactive warning, as the action seems routine and safe.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1608,7 +1951,11 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is in a parked car, wearing sunglasses, and appears to be reading a magazine, which aligns with their habit of enjoying magazines while in the car. There is no immediate indication of driving or any hazardous activity. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The person is in a parked car, wearing sunglasses, and appears to be reading a magazine, which aligns with their habit of enjoying magazines while in the car. There is no immediate indication of driving or any hazardous activity. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(M1.1)",
+      "(M1.4)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1639,7 +1986,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person sitting in the driver's seat, wearing sunglasses, and using a notepad, which aligns with their memories of jotting down ideas while in the car. However, if the vehicle is in motion, this could be a distraction and pose a safety risk. If the car is parked, no warning is necessary. \n\nBet: $6 (assuming the car might be in motion)."
+    "justification": "The frames show the person sitting in the driver's seat, wearing sunglasses, and using a notepad, which aligns with their memories of jotting down ideas while in the car. However, if the vehicle is in motion, this could be a distraction and pose a safety risk. If the car is parked, no warning is necessary. \n\nBet: $6 (assuming the car might be in motion).",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.4)",
+      "(M1.6)",
+      "(M1.8)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1674,7 +2030,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person putting on a jacket while seated in the driver's seat. This action could potentially distract them from driving safely. Given the memories, the person has experienced situations where wearing a jacket was necessary for comfort. However, putting on a jacket while driving can be risky due to limited movement and visibility. A proactive warning to ensure the jacket is worn before starting to drive would be prudent.\n\nBet: $6"
+    "justification": "The frames show the person putting on a jacket while seated in the driver's seat. This action could potentially distract them from driving safely. Given the memories, the person has experienced situations where wearing a jacket was necessary for comfort. However, putting on a jacket while driving can be risky due to limited movement and visibility. A proactive warning to ensure the jacket is worn before starting to drive would be prudent.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.4)",
+      "(M1.6)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1714,7 +2079,18 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person sitting in the driver's seat, appearing relaxed with their arm crossed, which aligns with their habit of crossing arms when seated. There is no immediate indication of danger or urgency in the situation. The person seems to be in a familiar and controlled environment, with no signs of distraction or potential mishaps related to the automation button.\n\nBet: $2"
+    "justification": "The frames show the person sitting in the driver's seat, appearing relaxed with their arm crossed, which aligns with their habit of crossing arms when seated. There is no immediate indication of danger or urgency in the situation. The person seems to be in a familiar and controlled environment, with no signs of distraction or potential mishaps related to the automation button.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.6)",
+      "(M1.8)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.17)",
+      "(M1.18)",
+      "(M1.21)"
+    ]
   },
   {
     "participant_id": 4,
@@ -1760,7 +2136,26 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person sitting in the driver's seat, using a phone, and wearing a light-colored jacket over a blue t-shirt. The car appears to be parked, as there is no indication of movement or driving. Given the memories, the person often takes calls while in the car, and since the car is stationary, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person sitting in the driver's seat, using a phone, and wearing a light-colored jacket over a blue t-shirt. The car appears to be parked, as there is no indication of movement or driving. Given the memories, the person often takes calls while in the car, and since the car is stationary, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.4)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.15)",
+      "(M1.18)",
+      "(M1.21)",
+      "(M1.24)",
+      "(M1.25)",
+      "(M1.26)"
+    ]
   },
   {
     "participant_id": 5,
@@ -1781,7 +2176,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is eating while driving, which aligns with their preference for easily handled food. However, this can be distracting and potentially dangerous, especially if they need to react quickly to road conditions. Given the context of past spills and the need for focus while driving, a proactive warning about the risks of eating while driving is advisable.\n\nBet: $6"
+    "justification": "The person is eating while driving, which aligns with their preference for easily handled food. However, this can be distracting and potentially dangerous, especially if they need to react quickly to road conditions. Given the context of past spills and the need for focus while driving, a proactive warning about the risks of eating while driving is advisable.\n\nBet: $6",
+    "reference": [
+      "(M1.1)",
+      "(M1.2)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 5,
@@ -1805,7 +2205,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is eating a banana while driving, which aligns with their preference for easily handled food and their enjoyment of bananas during commutes. However, eating while driving can be distracting and potentially dangerous. Given the previous experience of dropping food in the car, there's a risk of distraction or mess, which could lead to unsafe driving conditions.\n\nBet: $6"
+    "justification": "The person is eating a banana while driving, which aligns with their preference for easily handled food and their enjoyment of bananas during commutes. However, eating while driving can be distracting and potentially dangerous. Given the previous experience of dropping food in the car, there's a risk of distraction or mess, which could lead to unsafe driving conditions.\n\nBet: $6",
+    "reference": [
+      "(M1.1)",
+      "(M1.2)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 5,
@@ -1833,7 +2238,16 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Be careful opening that bottle while driving; remember the road trip spill two months ago!\"",
-    "justification": "The frames show the person eating while driving, which aligns with their preference for eating snacks in the car. However, handling food and opening a bottle of water simultaneously can be distracting and potentially dangerous, especially given their past experiences of spilling water. A proactive warning about the risks of multitasking while driving would be prudent.\n\nBet: $8"
+    "justification": "The frames show the person eating while driving, which aligns with their preference for eating snacks in the car. However, handling food and opening a bottle of water simultaneously can be distracting and potentially dangerous, especially given their past experiences of spilling water. A proactive warning about the risks of multitasking while driving would be prudent.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.10)",
+      "(M2.3)"
+    ]
   },
   {
     "participant_id": 5,
@@ -1869,7 +2283,18 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is handling a bottle while driving, which aligns with their preference for drinking bottled water. However, this action can be distracting and potentially dangerous, especially if they need to react quickly to a driving situation. Given their history of spills and distractions, a proactive warning to focus on driving and avoid multitasking would be prudent.\n\nBet: $8"
+    "justification": "The person is handling a bottle while driving, which aligns with their preference for drinking bottled water. However, this action can be distracting and potentially dangerous, especially if they need to react quickly to a driving situation. Given their history of spills and distractions, a proactive warning to focus on driving and avoid multitasking would be prudent.\n\nBet: $8",
+    "reference": [
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.13)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 5,
@@ -1912,7 +2337,19 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person eating while driving, which aligns with their preference for snacking in the car. However, eating while driving can be distracting and potentially dangerous, especially if the person needs to react quickly to traffic conditions. Given the context, a proactive warning about the risks of distracted driving is advisable.\n\nBet: $8"
+    "justification": "The frames show the person eating while driving, which aligns with their preference for snacking in the car. However, eating while driving can be distracting and potentially dangerous, especially if the person needs to react quickly to traffic conditions. Given the context, a proactive warning about the risks of distracted driving is advisable.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.7)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.13)",
+      "(M1.17)",
+      "(M1.19)",
+      "(M1.20)"
+    ]
   },
   {
     "participant_id": 5,
@@ -1958,7 +2395,20 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road while snacking; handling both food and a bottle can be tricky, especially with a manual transmission.\"",
-    "justification": "The frames show the person eating while driving, which aligns with their preference for snacking in the car. However, handling food and a bottle simultaneously can be distracting and potentially dangerous, especially with a manual transmission. A proactive warning about maintaining focus on driving and minimizing distractions is advisable.\n\nBet: $8"
+    "justification": "The frames show the person eating while driving, which aligns with their preference for snacking in the car. However, handling food and a bottle simultaneously can be distracting and potentially dangerous, especially with a manual transmission. A proactive warning about maintaining focus on driving and minimizing distractions is advisable.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.7)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.13)",
+      "(M1.17)",
+      "(M1.19)",
+      "(M1.20)",
+      "(M1.25)"
+    ]
   },
   {
     "participant_id": 5,
@@ -2013,7 +2463,20 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is eating while driving, which aligns with their preference for snacks that are easy to handle. However, this behavior can be distracting and potentially dangerous, especially if they need to react quickly to road conditions. A proactive warning about the risks of eating while driving could be beneficial to ensure safety.\n\nBet: $6"
+    "justification": "The person is eating while driving, which aligns with their preference for snacks that are easy to handle. However, this behavior can be distracting and potentially dangerous, especially if they need to react quickly to road conditions. A proactive warning about the risks of eating while driving could be beneficial to ensure safety.\n\nBet: $6",
+    "reference": [
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.7)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.13)",
+      "(M1.17)",
+      "(M1.19)",
+      "(M1.20)",
+      "(M1.25)",
+      "(M1.28)"
+    ]
   },
   {
     "participant_id": 5,
@@ -2069,7 +2532,26 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person eating while driving, which aligns with their preference for snacking in the car. However, this behavior can be distracting and potentially dangerous, especially if it involves handling food and drinks while operating the vehicle. Given the potential risk of distraction, a proactive warning about the dangers of eating while driving would be advisable.\n\nBet: $8"
+    "justification": "The frames show the person eating while driving, which aligns with their preference for snacking in the car. However, this behavior can be distracting and potentially dangerous, especially if it involves handling food and drinks while operating the vehicle. Given the potential risk of distraction, a proactive warning about the dangers of eating while driving would be advisable.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.13)",
+      "(M1.17)",
+      "(M1.19)",
+      "(M1.20)",
+      "(M1.25)",
+      "(M1.28)",
+      "(M1.31)",
+      "(M1.34)",
+      "(M1.35)"
+    ]
   },
   {
     "participant_id": 5,
@@ -2131,7 +2613,31 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person sitting in the driver's seat, appearing relaxed with their hands mostly at rest. There is no visible indication of eating or drinking, which aligns with their preference for eating while driving. However, given their history of nearly dropping food, a proactive warning about the potential distraction of eating while driving could be beneficial.\n\nBet: $4"
+    "justification": "The frames show the person sitting in the driver's seat, appearing relaxed with their hands mostly at rest. There is no visible indication of eating or drinking, which aligns with their preference for eating while driving. However, given their history of nearly dropping food, a proactive warning about the potential distraction of eating while driving could be beneficial.\n\nBet: $4",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.9)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.13)",
+      "(M1.16)",
+      "(M1.19)",
+      "(M1.20)",
+      "(M1.21)",
+      "(M1.25)",
+      "(M1.28)",
+      "(M1.31)",
+      "(M1.34)",
+      "(M1.36)",
+      "(M1.39)",
+      "(M1.40)"
+    ]
   },
   {
     "participant_id": 5,
@@ -2287,7 +2793,23 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a relaxed position, possibly reaching for something in the car. Given their tendency to fidget and keep items like a pink bag in the car, they might be searching for an object. Since they are stationary and not driving, there is no immediate danger. However, if they start driving while distracted, it could become risky.\n\nBet: $3"
+    "justification": "The frames show the person in a relaxed position, possibly reaching for something in the car. Given their tendency to fidget and keep items like a pink bag in the car, they might be searching for an object. Since they are stationary and not driving, there is no immediate danger. However, if they start driving while distracted, it could become risky.\n\nBet: $3",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.7)",
+      "(M1.11)",
+      "(M1.19)",
+      "(M1.20)",
+      "(M1.25)",
+      "(M1.28)",
+      "(M1.34)",
+      "(M1.45)",
+      "(M1.47)",
+      "(M1.56)",
+      "(M1.57)",
+      "(M1.62)"
+    ]
   },
   {
     "participant_id": 5,
@@ -2372,7 +2894,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a relaxed driving position, wearing a seatbelt, and interacting with the car's controls. Given the memories, they have a habit of ensuring their seatbelt is fastened, which aligns with safety practices. There is no immediate indication of danger or distraction, so a proactive warning is not necessary.\n\nBet: $2"
+    "justification": "The frames show the person in a relaxed driving position, wearing a seatbelt, and interacting with the car's controls. Given the memories, they have a habit of ensuring their seatbelt is fastened, which aligns with safety practices. There is no immediate indication of danger or distraction, so a proactive warning is not necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.23)",
+      "(M1.24)",
+      "(M1.38)",
+      "(M1.56)",
+      "(M1.60)",
+      "(M1.65)"
+    ]
   },
   {
     "participant_id": 5,
@@ -2396,7 +2927,11 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember how you spilled a drink last time? Stay focused on the road and avoid distractions while driving.\"",
-    "justification": "The person is reaching for a snack while driving, which could be distracting and potentially dangerous, especially with a manual transmission. Given their past experience of spilling a drink, there's a risk of a similar incident occurring. A proactive warning to focus on driving and avoid distractions would be prudent.\n\nBet: $8"
+    "justification": "The person is reaching for a snack while driving, which could be distracting and potentially dangerous, especially with a manual transmission. Given their past experience of spilling a drink, there's a risk of a similar incident occurring. A proactive warning to focus on driving and avoid distractions would be prudent.\n\nBet: $8",
+    "reference": [
+      "(M1.2)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 5,
@@ -2426,7 +2961,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is drinking water while sitting in the car, which aligns with their habit of staying hydrated during drives. They are wearing a seatbelt and sunglasses, indicating they are prepared for driving. However, drinking while driving can be distracting, especially if the car is in motion. It's important to ensure the car is stationary or the driver is fully attentive to the road.\n\nBet: $4"
+    "justification": "The person is drinking water while sitting in the car, which aligns with their habit of staying hydrated during drives. They are wearing a seatbelt and sunglasses, indicating they are prepared for driving. However, drinking while driving can be distracting, especially if the car is in motion. It's important to ensure the car is stationary or the driver is fully attentive to the road.\n\nBet: $4",
+    "reference": [
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.8)",
+      "(M1.11)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 5,
@@ -2462,7 +3004,15 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person driving with a seatbelt on, wearing sunglasses, and in a relaxed posture. The car appears organized, with snacks visible, aligning with their habits. There is no immediate indication of distraction or danger. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person driving with a seatbelt on, wearing sunglasses, and in a relaxed posture. The car appears organized, with snacks visible, aligning with their habits. There is no immediate indication of distraction or danger. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.6)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.15)"
+    ]
   },
   {
     "participant_id": 5,
@@ -2501,7 +3051,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person reaching into the center console, possibly searching for something. Given their past experience of panic when unable to find their phone, it's important to ensure they are not distracted while driving. A proactive warning to check for necessary items before starting the drive could prevent potential distractions.\n\nBet: $6"
+    "justification": "The frames show the person reaching into the center console, possibly searching for something. Given their past experience of panic when unable to find their phone, it's important to ensure they are not distracted while driving. A proactive warning to check for necessary items before starting the drive could prevent potential distractions.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.8)",
+      "(M1.11)",
+      "(M1.13)",
+      "(M1.19)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2522,7 +3081,10 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is in a car, holding a brown paper bag, which they associate with positive memories. However, their focus on the bag while in the driver's seat could be distracting. It's important to ensure they remain attentive to driving tasks to avoid potential hazards.\n\nBet: $6"
+    "justification": "The person is in a car, holding a brown paper bag, which they associate with positive memories. However, their focus on the bag while in the driver's seat could be distracting. It's important to ensure they remain attentive to driving tasks to avoid potential hazards.\n\nBet: $6",
+    "reference": [
+      "(M1.3)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2549,7 +3111,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, wearing a blue jacket and glasses, consistent with their driving habits. They are handling a paper bag, which could distract them from driving safely. Given the potential for distraction while driving, a proactive warning about maintaining focus on the road is advisable.\n\nBet: $8"
+    "justification": "The frames show the person in a car, wearing a blue jacket and glasses, consistent with their driving habits. They are handling a paper bag, which could distract them from driving safely. Given the potential for distraction while driving, a proactive warning about maintaining focus on the road is advisable.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.9)",
+      "(M1.10)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2582,7 +3151,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is in a parked car, wearing a blue jacket and glasses, holding a brown paper bag, which aligns with their routine of carrying food. The car is stationary, and there is no immediate indication of danger or distraction from driving. Therefore, no proactive warning is necessary.\n\nI bet $2 on this."
+    "justification": "The person is in a parked car, wearing a blue jacket and glasses, holding a brown paper bag, which aligns with their routine of carrying food. The car is stationary, and there is no immediate indication of danger or distraction from driving. Therefore, no proactive warning is necessary.\n\nI bet $2 on this.",
+    "reference": [
+      "(M1.1)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.9)",
+      "(M1.10)",
+      "(M1.11)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2668,7 +3247,18 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, wearing a blue jacket and glasses, consistent with their usual driving attire. They appear to be opening a bottle of water, which aligns with their memory of staying hydrated during drives. Since the car is stationary and the person is not actively driving, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person in a car, wearing a blue jacket and glasses, consistent with their usual driving attire. They appear to be opening a bottle of water, which aligns with their memory of staying hydrated during drives. Since the car is stationary and the person is not actively driving, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.10)",
+      "(M1.15)",
+      "(M1.17)",
+      "(M1.21)",
+      "(M1.22)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2717,7 +3307,19 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is drinking water while in the driver's seat, which aligns with their habit of staying hydrated while driving. However, if the car is in motion, this could be a distraction, especially since they drive a manual transmission vehicle. It's important to ensure the car is stationary or that they are fully attentive to the road if driving.\n\nBet: $6"
+    "justification": "The person is drinking water while in the driver's seat, which aligns with their habit of staying hydrated while driving. However, if the car is in motion, this could be a distraction, especially since they drive a manual transmission vehicle. It's important to ensure the car is stationary or that they are fully attentive to the road if driving.\n\nBet: $6",
+    "reference": [
+      "(M1.3)",
+      "(M1.8)",
+      "(M1.15)",
+      "(M1.16)",
+      "(M1.18)",
+      "(M1.21)",
+      "(M1.22)",
+      "(M1.24)",
+      "(M1.25)",
+      "(M2.7)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2781,7 +3383,19 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is adjusting the multimedia display while seated in the car, which aligns with their habit of interacting with the car's controls. They appear calm and composed, with their seatbelt fastened, indicating a routine and safe behavior. No proactive warning is necessary as there is no immediate danger.\n\nBet: $2"
+    "justification": "The person is adjusting the multimedia display while seated in the car, which aligns with their habit of interacting with the car's controls. They appear calm and composed, with their seatbelt fastened, indicating a routine and safe behavior. No proactive warning is necessary as there is no immediate danger.\n\nBet: $2",
+    "reference": [
+      "(M1.11)",
+      "(M1.16)",
+      "(M1.18)",
+      "(M1.24)",
+      "(M1.25)",
+      "(M1.31)",
+      "(M1.37)",
+      "(M1.39)",
+      "(M1.43)",
+      "(M1.44)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2849,7 +3463,18 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is interacting with the multimedia display while driving, which could be distracting. Given their habit of adjusting items and using the multimedia system, there's a risk of losing focus on the road. A proactive warning to minimize distractions and ensure attention remains on driving would be beneficial.\n\nBet: $8"
+    "justification": "The person is interacting with the multimedia display while driving, which could be distracting. Given their habit of adjusting items and using the multimedia system, there's a risk of losing focus on the road. A proactive warning to minimize distractions and ensure attention remains on driving would be beneficial.\n\nBet: $8",
+    "reference": [
+      "(M1.8)",
+      "(M1.16)",
+      "(M1.18)",
+      "(M1.24)",
+      "(M1.25)",
+      "(M1.31)",
+      "(M1.37)",
+      "(M1.43)",
+      "(M1.45)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2873,7 +3498,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a parked car, holding a brown paper bag, which aligns with their habit of enjoying food in the car. There is no immediate indication of danger, as the car appears stationary and the person is focused on the bag. Given the context, no proactive warning is necessary.\n\nI bet $2 on this."
+    "justification": "The frames show the person in a parked car, holding a brown paper bag, which aligns with their habit of enjoying food in the car. There is no immediate indication of danger, as the car appears stationary and the person is focused on the bag. Given the context, no proactive warning is necessary.\n\nI bet $2 on this.",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.4)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2904,7 +3534,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, wearing a seatbelt, and holding a bottle, which aligns with their habit of opening bottles in the car. Since the car appears stationary and the person is wearing a seatbelt, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person in a car, wearing a seatbelt, and holding a bottle, which aligns with their habit of opening bottles in the car. Since the car appears stationary and the person is wearing a seatbelt, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.5)",
+      "(M1.7)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2939,7 +3575,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is in a parked car, wearing a seatbelt, and drinking from a water bottle, which aligns with their habit of hydrating while in the car. There is no immediate danger as the car is stationary, and the person is not engaging in any risky behavior. Therefore, no proactive warning is needed.\n\nI bet $2 on this."
+    "justification": "The person is in a parked car, wearing a seatbelt, and drinking from a water bottle, which aligns with their habit of hydrating while in the car. There is no immediate danger as the car is stationary, and the person is not engaging in any risky behavior. Therefore, no proactive warning is needed.\n\nI bet $2 on this.",
+    "reference": [
+      "(M1.4)",
+      "(M1.7)",
+      "(M1.10)",
+      "(M2.7)"
+    ]
   },
   {
     "participant_id": 6,
@@ -2979,7 +3621,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in their car, wearing a blue jacket and maroon pants, consistent with their habits. They appear to be adjusting something near the gear shift, possibly the notable red button. The seatbelt is on, indicating safety awareness. Given the context, there is no immediate danger or need for a proactive warning.\n\nBet: $2"
+    "justification": "The frames show the person in their car, wearing a blue jacket and maroon pants, consistent with their habits. They appear to be adjusting something near the gear shift, possibly the notable red button. The seatbelt is on, indicating safety awareness. Given the context, there is no immediate danger or need for a proactive warning.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.14)",
+      "(M1.18)",
+      "(M1.20)"
+    ]
   },
   {
     "participant_id": 6,
@@ -3030,7 +3681,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is in their car, wearing a seatbelt, and appears to be reaching for something, possibly their laptop, in the passenger seat. Given their habit of organizing and using their laptop in the car, this seems like a routine action. There are no immediate signs of danger or distraction from driving, so no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The person is in their car, wearing a seatbelt, and appears to be reaching for something, possibly their laptop, in the passenger seat. Given their habit of organizing and using their laptop in the car, this seems like a routine action. There are no immediate signs of danger or distraction from driving, so no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(M1.4)",
+      "(M1.18)",
+      "(M1.20)",
+      "(M1.24)",
+      "(M2.9)"
+    ]
   },
   {
     "participant_id": 6,
@@ -3092,7 +3750,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, wearing a seatbelt and interacting with the gear shift area. Given the memories, they have a habit of unfastening their seatbelt after driving and fidgeting in the car. Since they are currently parked and appear to be adjusting or interacting with the car controls, there is no immediate danger. The seatbelt is fastened, and the person seems to be in a safe, stationary position.\n\nBet: $2"
+    "justification": "The frames show the person in a car, wearing a seatbelt and interacting with the gear shift area. Given the memories, they have a habit of unfastening their seatbelt after driving and fidgeting in the car. Since they are currently parked and appear to be adjusting or interacting with the car controls, there is no immediate danger. The seatbelt is fastened, and the person seems to be in a safe, stationary position.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.18)",
+      "(M1.20)",
+      "(M1.24)",
+      "(M1.37)",
+      "(M1.41)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 6,
@@ -3187,7 +3855,11 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, interacting with their phone, which aligns with their preference for using the phone in the car. Given their past experience of dropping the phone, there is a potential risk of distraction or dropping it again, especially if the car is in motion. A proactive warning to ensure the phone is securely handled and to minimize distraction while driving could be beneficial.\n\nBet: $6"
+    "justification": "The frames show the person in a car, interacting with their phone, which aligns with their preference for using the phone in the car. Given their past experience of dropping the phone, there is a potential risk of distraction or dropping it again, especially if the car is in motion. A proactive warning to ensure the phone is securely handled and to minimize distraction while driving could be beneficial.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.3)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3213,7 +3885,13 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road; using your phone while driving a manual can be risky.\"",
-    "justification": "The frames show the person interacting with their phone while in the car, which aligns with their preference for phone use while driving. However, this behavior can be distracting and potentially dangerous, especially when driving a manual transmission vehicle. A proactive warning about the risks of distracted driving would be advisable to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person interacting with their phone while in the car, which aligns with their preference for phone use while driving. However, this behavior can be distracting and potentially dangerous, especially when driving a manual transmission vehicle. A proactive warning about the risks of distracted driving would be advisable to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.8)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3246,7 +3924,16 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Hey, remember to keep your focus on the road—reading that magazine while driving can be risky!\"",
-    "justification": "The frames show the person interacting with a magazine while driving, which can be distracting and dangerous. Given the preference for reading magazines and the habit of keeping them in the car, this behavior could lead to reduced attention on the road. A proactive warning is advisable to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person interacting with a magazine while driving, which can be distracting and dangerous. Given the preference for reading magazines and the habit of keeping them in the car, this behavior could lead to reduced attention on the road. A proactive warning is advisable to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.8)",
+      "(M1.11)",
+      "(M1.13)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3284,7 +3971,18 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road; reading the newspaper can wait until you're safely parked.\"",
-    "justification": "The frames show the person reading a newspaper while in the driver's seat of a car with a manual transmission. This behavior can be distracting and dangerous, especially if the car is in motion. Given the potential risk of not paying full attention to driving, a proactive warning is advisable to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person reading a newspaper while in the driver's seat of a car with a manual transmission. This behavior can be distracting and dangerous, especially if the car is in motion. Given the potential risk of not paying full attention to driving, a proactive warning is advisable to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.6)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.16)",
+      "(M1.17)",
+      "(M2.1)",
+      "(M2.2)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3327,7 +4025,21 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person sitting in a parked car, wearing a blue t-shirt with \"BRO\" printed on it, and light blue jeans, consistent with their general preferences. The person appears to be reaching for something, possibly a magazine, which aligns with their habit of reading in the car. Since the car is parked and there is no immediate danger, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person sitting in a parked car, wearing a blue t-shirt with \"BRO\" printed on it, and light blue jeans, consistent with their general preferences. The person appears to be reaching for something, possibly a magazine, which aligns with their habit of reading in the car. Since the car is parked and there is no immediate danger, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.8)",
+      "(M1.11)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.16)",
+      "(M1.20)",
+      "(M1.21)",
+      "(M1.22)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3381,7 +4093,24 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a parked car, wearing a navy blue t-shirt with \"Brooklyn\" printed on it and light blue jeans, consistent with their general preferences. They appear to be reaching for something, possibly their backpack, which aligns with their habit of keeping it in the passenger seat for easy access. There is no immediate danger or need for a proactive warning as the car is stationary and they are wearing a seatbelt.\n\nBet: $2"
+    "justification": "The frames show the person in a parked car, wearing a navy blue t-shirt with \"Brooklyn\" printed on it and light blue jeans, consistent with their general preferences. They appear to be reaching for something, possibly their backpack, which aligns with their habit of keeping it in the passenger seat for easy access. There is no immediate danger or need for a proactive warning as the car is stationary and they are wearing a seatbelt.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.4)",
+      "(M1.5)",
+      "(M1.8)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.20)",
+      "(M1.21)",
+      "(M1.27)",
+      "(M1.28)",
+      "(M1.32)",
+      "(M2.1)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3435,7 +4164,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is putting on a leather jacket while seated in the car, which could restrict movement and visibility, especially if the car is in motion. Given the manual transmission, this could be particularly risky if the person needs to shift gears or react quickly. It's advisable to ensure the car is parked safely before putting on the jacket to avoid any potential hazards.\n\nBet: $6"
+    "justification": "The person is putting on a leather jacket while seated in the car, which could restrict movement and visibility, especially if the car is in motion. Given the manual transmission, this could be particularly risky if the person needs to shift gears or react quickly. It's advisable to ensure the car is parked safely before putting on the jacket to avoid any potential hazards.\n\nBet: $6",
+    "reference": [
+      "(M1.6)",
+      "(M1.25)",
+      "(M1.28)",
+      "(M1.33)",
+      "(M2.3)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3492,7 +4228,16 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road; juggling your phone and water bottle can be risky, like when you spilled last month.\"",
-    "justification": "The frames show the person using a phone while holding a water bottle, which aligns with their habit of multitasking while driving. This behavior is risky as it can lead to distractions, especially since they have previously spilled water while handling both items. A proactive warning is advisable to prevent potential accidents due to divided attention.\n\nBet: $8"
+    "justification": "The frames show the person using a phone while holding a water bottle, which aligns with their habit of multitasking while driving. This behavior is risky as it can lead to distractions, especially since they have previously spilled water while handling both items. A proactive warning is advisable to prevent potential accidents due to divided attention.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.7)",
+      "(M1.9)",
+      "(M2.4)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3526,7 +4271,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person opening and drinking from a water bottle while driving. Given the memories, this is a habitual action. However, it poses a distraction risk, especially since the person also frequently uses their phone while driving. A proactive warning about the dangers of multitasking while driving could be beneficial to ensure safety.\n\nBet: $6"
+    "justification": "The frames show the person opening and drinking from a water bottle while driving. Given the memories, this is a habitual action. However, it poses a distraction risk, especially since the person also frequently uses their phone while driving. A proactive warning about the dangers of multitasking while driving could be beneficial to ensure safety.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.7)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M2.3)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3596,7 +4350,17 @@
     "type_2_memories": [],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, possibly preparing to drive. They are putting on a seatbelt, which is a positive safety measure. However, they are also handling a jacket, which could be distracting if done while driving. Given their habit of using a phone while driving, it's important to ensure they focus on the road. A proactive warning to avoid distractions while driving is advisable.\n\nBet: $6"
+    "justification": "The frames show the person in a car, possibly preparing to drive. They are putting on a seatbelt, which is a positive safety measure. However, they are also handling a jacket, which could be distracting if done while driving. Given their habit of using a phone while driving, it's important to ensure they focus on the road. A proactive warning to avoid distractions while driving is advisable.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.7)",
+      "(M1.9)",
+      "(M1.12)",
+      "(M1.14)",
+      "(M1.16)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3626,7 +4390,18 @@
     "type_2_memories": [],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person adjusting their jacket while seated in the car, with bottled water visible in the console. Given the memories, the person has a habit of multitasking while driving, such as talking on the phone and drinking water. This behavior can be distracting and potentially dangerous. A proactive warning about staying focused on driving and minimizing distractions is advisable.\n\nBet: $8"
+    "justification": "The frames show the person adjusting their jacket while seated in the car, with bottled water visible in the console. Given the memories, the person has a habit of multitasking while driving, such as talking on the phone and drinking water. This behavior can be distracting and potentially dangerous. A proactive warning about staying focused on driving and minimizing distractions is advisable.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.7)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.15)",
+      "(M1.16)",
+      "(M1.17)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3676,7 +4451,18 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person handling a laptop in the car, which aligns with their habit of working from the car. Given their history of spilling drinks near the laptop, the presence of a water bottle nearby poses a risk. A proactive warning to be cautious with liquids around the laptop is advisable to prevent potential damage.\n\nBet: $6"
+    "justification": "The frames show the person handling a laptop in the car, which aligns with their habit of working from the car. Given their history of spilling drinks near the laptop, the presence of a water bottle nearby poses a risk. A proactive warning to be cautious with liquids around the laptop is advisable to prevent potential damage.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.7)",
+      "(M1.11)",
+      "(M1.15)",
+      "(M1.17)",
+      "(M2.4)",
+      "(M2.6)"
+    ]
   },
   {
     "participant_id": 7,
@@ -3726,7 +4512,19 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person using a laptop while seated in a car, which aligns with their habit of working from their car. However, the presence of a laptop and bottled water near the gear shift could be distracting if the car is in motion. Given the potential for distraction and the risk of not focusing on driving, a proactive warning is advisable to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person using a laptop while seated in a car, which aligns with their habit of working from their car. However, the presence of a laptop and bottled water near the gear shift could be distracting if the car is in motion. Given the potential for distraction and the risk of not focusing on driving, a proactive warning is advisable to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.7)",
+      "(M1.11)",
+      "(M1.15)",
+      "(M1.16)",
+      "(M1.22)",
+      "(M1.29)",
+      "(M2.3)"
+    ]
   },
   {
     "participant_id": 8,
@@ -3746,7 +4544,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is drinking water while driving, which aligns with their preference for staying hydrated. However, given their past experience of spilling water on their laptop, there is a potential risk of distraction or another spill. A proactive warning to ensure the water bottle is securely closed and kept away from electronics might be beneficial.\n\nBet: $6"
+    "justification": "The person is drinking water while driving, which aligns with their preference for staying hydrated. However, given their past experience of spilling water on their laptop, there is a potential risk of distraction or another spill. A proactive warning to ensure the water bottle is securely closed and kept away from electronics might be beneficial.\n\nBet: $6",
+    "reference": [
+      "(M1.1)",
+      "(M1.2)",
+      "(M2.2)"
+    ]
   },
   {
     "participant_id": 8,
@@ -3778,7 +4581,18 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is reaching for a jacket while in the driver's seat, which could potentially distract them from driving safely. Given their habit of organizing items in the car and keeping a jacket for unexpected weather, this action seems routine. However, if the car is in motion, this could be risky. It's important to ensure the vehicle is stationary before engaging in such activities.\n\nBet: $6"
+    "justification": "The person is reaching for a jacket while in the driver's seat, which could potentially distract them from driving safely. Given their habit of organizing items in the car and keeping a jacket for unexpected weather, this action seems routine. However, if the car is in motion, this could be risky. It's important to ensure the vehicle is stationary before engaging in such activities.\n\nBet: $6",
+    "reference": [
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.8)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.13)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 8,
@@ -3815,7 +4629,15 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person reaching into the car, possibly retrieving or organizing items. Given their habit of organizing items and the previous incident of knocking over a water bottle, there is a potential risk of spilling or dropping items again. A proactive warning to be cautious while handling items in the car could prevent a similar mishap.\n\nBet: $6"
+    "justification": "The frames show the person reaching into the car, possibly retrieving or organizing items. Given their habit of organizing items and the previous incident of knocking over a water bottle, there is a potential risk of spilling or dropping items again. A proactive warning to be cautious while handling items in the car could prevent a similar mishap.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.5)",
+      "(M1.9)",
+      "(M1.13)"
+    ]
   },
   {
     "participant_id": 8,
@@ -3835,7 +4657,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person eating strawberries while driving, which aligns with their enjoyment of snacking on strawberries in the car. However, eating while driving can be distracting and potentially dangerous. Given the context of past experiences with snacks in the car, a proactive warning about maintaining focus on the road and minimizing distractions is advisable.\n\nBet: $6"
+    "justification": "The frames show the person eating strawberries while driving, which aligns with their enjoyment of snacking on strawberries in the car. However, eating while driving can be distracting and potentially dangerous. Given the context of past experiences with snacks in the car, a proactive warning about maintaining focus on the road and minimizing distractions is advisable.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M2.1)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 8,
@@ -3863,7 +4691,11 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is in a parked car, wearing a seatbelt, and appears to be reaching for a snack, possibly strawberries, which aligns with their general habits. There is no immediate indication of driving or any hazardous activity. Given the context, no proactive warning is necessary.\n\nI bet $2 on this."
+    "justification": "The person is in a parked car, wearing a seatbelt, and appears to be reaching for a snack, possibly strawberries, which aligns with their general habits. There is no immediate indication of driving or any hazardous activity. Given the context, no proactive warning is necessary.\n\nI bet $2 on this.",
+    "reference": [
+      "(M1.1)",
+      "(M1.10)"
+    ]
   },
   {
     "participant_id": 8,
@@ -3896,7 +4728,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, wearing sunglasses and a colorful jacket, consistent with their memories. They appear to be adjusting something, possibly preparing to drive. Given their memory of ensuring the seatbelt fits snugly and adjusting mirrors, it seems they are following safety measures. No immediate proactive warning is necessary as they seem to be taking appropriate precautions.\n\nI bet $2 on this."
+    "justification": "The frames show the person in a car, wearing sunglasses and a colorful jacket, consistent with their memories. They appear to be adjusting something, possibly preparing to drive. Given their memory of ensuring the seatbelt fits snugly and adjusting mirrors, it seems they are following safety measures. No immediate proactive warning is necessary as they seem to be taking appropriate precautions.\n\nI bet $2 on this.",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.13)"
+    ]
   },
   {
     "participant_id": 8,
@@ -3935,7 +4777,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is wearing a seatbelt and sunglasses, which aligns with their safety habits and preferences. They appear to be reaching for something, possibly a snack or item in the center console, which is consistent with their memories of keeping snacks there. There are no immediate safety concerns visible in the frames.\n\nBet: $2"
+    "justification": "The person is wearing a seatbelt and sunglasses, which aligns with their safety habits and preferences. They appear to be reaching for something, possibly a snack or item in the center console, which is consistent with their memories of keeping snacks there. There are no immediate safety concerns visible in the frames.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.9)",
+      "(M1.10)",
+      "(M1.12)",
+      "(M1.17)"
+    ]
   },
   {
     "participant_id": 8,
@@ -3977,7 +4826,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person putting on a jacket while seated in the car. Given the memories, this aligns with their habit of adjusting clothing before driving. There is no immediate danger observed in the frames, as the person is stationary and not yet driving. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person putting on a jacket while seated in the car. Given the memories, this aligns with their habit of adjusting clothing before driving. There is no immediate danger observed in the frames, as the person is stationary and not yet driving. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.9)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.17)",
+      "(M1.21)",
+      "(M1.22)"
+    ]
   },
   {
     "participant_id": 8,
@@ -4022,7 +4880,15 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is seated in the car, wearing a seatbelt and a red sweater, consistent with their general habits. They appear to be handling something, possibly a snack or a note, which aligns with their tendency to snack or keep notes in the car. There is no immediate indication of danger or distraction that requires a proactive warning.\n\nBet: $2"
+    "justification": "The person is seated in the car, wearing a seatbelt and a red sweater, consistent with their general habits. They appear to be handling something, possibly a snack or a note, which aligns with their tendency to snack or keep notes in the car. There is no immediate indication of danger or distraction that requires a proactive warning.\n\nBet: $2",
+    "reference": [
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.10)",
+      "(M1.17)",
+      "(M1.22)",
+      "(M1.26)"
+    ]
   },
   {
     "participant_id": 8,
@@ -4073,7 +4939,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is wearing a seatbelt and sunglasses, which aligns with their safety habits and preferences. They appear to be adjusting something in the car, possibly organizing or reaching for an item. There is no immediate indication of danger or distraction that requires a proactive warning.\n\nBet: $2"
+    "justification": "The person is wearing a seatbelt and sunglasses, which aligns with their safety habits and preferences. They appear to be adjusting something in the car, possibly organizing or reaching for an item. There is no immediate indication of danger or distraction that requires a proactive warning.\n\nBet: $2",
+    "reference": [
+      "(M1.10)",
+      "(M1.12)",
+      "(M1.17)",
+      "(M1.21)",
+      "(M1.22)",
+      "(M1.24)",
+      "(M1.28)"
+    ]
   },
   {
     "participant_id": 8,
@@ -4130,7 +5005,20 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a parked car, wearing a seatbelt and interacting with their phone. Given the memories, this aligns with their habit of using the phone while in the car. Since the car appears stationary and the person is not driving, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person in a parked car, wearing a seatbelt and interacting with their phone. Given the memories, this aligns with their habit of using the phone while in the car. Since the car appears stationary and the person is not driving, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.9)",
+      "(M1.10)",
+      "(M1.17)",
+      "(M1.21)",
+      "(M1.22)",
+      "(M1.28)",
+      "(M1.35)",
+      "(M1.36)",
+      "(M1.38)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 9,
@@ -4149,7 +5037,11 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person driving and reaching for something, possibly the water bottle in the cup holder. Given the previous memory of spilling coffee, there is a risk of distraction or another spill. A proactive warning to focus on driving and ensure the bottle is secure could prevent a similar incident.\n\nBet: $6"
+    "justification": "The frames show the person driving and reaching for something, possibly the water bottle in the cup holder. Given the previous memory of spilling coffee, there is a risk of distraction or another spill. A proactive warning to focus on driving and ensure the bottle is secure could prevent a similar incident.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M2.2)"
+    ]
   },
   {
     "participant_id": 9,
@@ -4173,7 +5065,15 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person using a laptop in a car with a bottle of water in the cup holder. Given the previous incident of spilling a drink in the car, there is a risk of another spill, especially with electronic devices nearby. A proactive warning to secure the bottle and ensure the laptop is safe from potential spills would be prudent.\n\nBet: $6"
+    "justification": "The frames show the person using a laptop in a car with a bottle of water in the cup holder. Given the previous incident of spilling a drink in the car, there is a risk of another spill, especially with electronic devices nearby. A proactive warning to secure the bottle and ensure the laptop is safe from potential spills would be prudent.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.4)",
+      "(M1.6)",
+      "(M2.1)",
+      "(M2.2)"
+    ]
   },
   {
     "participant_id": 9,
@@ -4273,7 +5173,25 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person using a laptop while seated in the driver's seat of a car, with a water bottle nearby. Given the memories, this behavior aligns with their habit of working in the car. However, using a laptop in the driver's seat can be distracting and potentially unsafe if the car is not parked securely. A proactive warning about ensuring the car is stationary and safely parked before using the laptop is advisable.\n\nBet: $6"
+    "justification": "The frames show the person using a laptop while seated in the driver's seat of a car, with a water bottle nearby. Given the memories, this behavior aligns with their habit of working in the car. However, using a laptop in the driver's seat can be distracting and potentially unsafe if the car is not parked securely. A proactive warning about ensuring the car is stationary and safely parked before using the laptop is advisable.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.4)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.9)",
+      "(M1.10)",
+      "(M1.15)",
+      "(M1.16)",
+      "(M1.19)",
+      "(M1.20)",
+      "(M1.24)",
+      "(M1.25)",
+      "(M1.28)",
+      "(M1.30)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4378,7 +5296,10 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person putting on their seat belt, which aligns with their Type 2 memory of prioritizing safety by fastening the seat belt before driving. Given this consistent behavior and the absence of any immediate danger, there is no need for a proactive warning.\n\nI bet $2 on this."
+    "justification": "The frames show the person putting on their seat belt, which aligns with their Type 2 memory of prioritizing safety by fastening the seat belt before driving. Given this consistent behavior and the absence of any immediate danger, there is no need for a proactive warning.\n\nI bet $2 on this.",
+    "reference": [
+      "(V)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4422,7 +5343,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person reading a newspaper while seated in a car, which aligns with their habit of reading in the car. However, if the car is in motion, this could be dangerous, especially since they frequently use their phone while driving. It's important to ensure the car is parked to avoid distractions. \n\nBet: $6"
+    "justification": "The frames show the person reading a newspaper while seated in a car, which aligns with their habit of reading in the car. However, if the car is in motion, this could be dangerous, especially since they frequently use their phone while driving. It's important to ensure the car is parked to avoid distractions. \n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.22)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4475,7 +5401,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is reading a magazine in a parked car, which aligns with their memories of enjoying reading in the car. Since the car is stationary and the seatbelt is fastened, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The person is reading a magazine in a parked car, which aligns with their memories of enjoying reading in the car. Since the car is stationary and the seatbelt is fastened, there is no immediate danger. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(M1.16)",
+      "(M1.19)",
+      "(M1.26)",
+      "(M1.31)",
+      "(M1.32)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4499,7 +5432,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person reaching for something, likely in the passenger seat or backseat. Given their history of items falling while retrieving their laptop, a proactive warning to ensure the laptop and other items are secure would be prudent. This could prevent potential damage or distraction while driving.\n\nBet: $6"
+    "justification": "The frames show the person reaching for something, likely in the passenger seat or backseat. Given their history of items falling while retrieving their laptop, a proactive warning to ensure the laptop and other items are secure would be prudent. This could prevent potential damage or distraction while driving.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.5)",
+      "(M2.3)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4527,7 +5467,15 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person handling a laptop while seated in a parked car, with the seatbelt on, indicating they are stationary. Given their preference for using the laptop while parked, this behavior aligns with their usual habits. There is no immediate danger observed, so no proactive warning is necessary.\n\nI bet $2 on this."
+    "justification": "The frames show the person handling a laptop while seated in a parked car, with the seatbelt on, indicating they are stationary. Given their preference for using the laptop while parked, this behavior aligns with their usual habits. There is no immediate danger observed, so no proactive warning is necessary.\n\nI bet $2 on this.",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.9)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4563,7 +5511,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person sitting in a car, wearing a seatbelt, and interacting with a screen. The presence of a red and yellow button near the gear shift suggests the car is stationary, aligning with the memory of using a laptop while parked. Given the context, there is no immediate danger, and the person appears to be in a controlled environment.\n\nBet: $2"
+    "justification": "The frames show the person sitting in a car, wearing a seatbelt, and interacting with a screen. The presence of a red and yellow button near the gear shift suggests the car is stationary, aligning with the memory of using a laptop while parked. Given the context, there is no immediate danger, and the person appears to be in a controlled environment.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.9)",
+      "(M1.10)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4604,7 +5561,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is in their car, wearing a seatbelt, and appears to be adjusting something, possibly sunglasses, which aligns with their habit of ensuring optimal visibility before driving. The car is stationary, and there is no immediate indication of danger. Given the context, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The person is in their car, wearing a seatbelt, and appears to be adjusting something, possibly sunglasses, which aligns with their habit of ensuring optimal visibility before driving. The car is stationary, and there is no immediate indication of danger. Given the context, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.19)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4699,7 +5662,15 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is parked and appears to be reading a magazine, which aligns with their memories of enjoying reading in the car. They are wearing a seatbelt and the car is stationary, indicating no immediate danger. No proactive warning is needed.\n\nBet: $2"
+    "justification": "The person is parked and appears to be reading a magazine, which aligns with their memories of enjoying reading in the car. They are wearing a seatbelt and the car is stationary, indicating no immediate danger. No proactive warning is needed.\n\nBet: $2",
+    "reference": [
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.22)",
+      "(M1.24)",
+      "(M1.26)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4748,7 +5719,19 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person drinking water while seated in a parked car, with the seatbelt fastened and the gear shift in neutral. Given the memories, this aligns with their habit of staying hydrated during drives. There is no immediate danger as the car is stationary, and the person is not distracted from driving. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person drinking water while seated in a parked car, with the seatbelt fastened and the gear shift in neutral. Given the memories, this aligns with their habit of staying hydrated during drives. There is no immediate danger as the car is stationary, and the person is not distracted from driving. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.5)",
+      "(M1.17)",
+      "(M1.19)",
+      "(M1.20)",
+      "(M1.23)",
+      "(M1.29)",
+      "(M1.30)",
+      "(M2.3)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4802,7 +5785,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a parked car, wearing a seatbelt, and holding a wrapped food item. Given the memories, this aligns with their habit of eating in the car while parked. There is no immediate danger as the car is stationary, and the person is not multitasking while driving. Therefore, no proactive warning is needed.\n\nBet: $2"
+    "justification": "The frames show the person in a parked car, wearing a seatbelt, and holding a wrapped food item. Given the memories, this aligns with their habit of eating in the car while parked. There is no immediate danger as the car is stationary, and the person is not multitasking while driving. Therefore, no proactive warning is needed.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.19)",
+      "(M1.24)",
+      "(M1.34)",
+      "(M1.35)"
+    ]
   },
   {
     "participant_id": 10,
@@ -4886,7 +5879,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, wearing a grey jacket, and handling a bag, possibly groceries. Given the memories, this aligns with their habit of storing grocery bags in the car. There is no immediate indication of danger or urgency in the situation. The person appears to be stationary and focused on organizing the bag.\n\nBet: $2"
+    "justification": "The frames show the person in a car, wearing a grey jacket, and handling a bag, possibly groceries. Given the memories, this aligns with their habit of storing grocery bags in the car. There is no immediate indication of danger or urgency in the situation. The person appears to be stationary and focused on organizing the bag.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M2.2)"
+    ]
   },
   {
     "participant_id": 11,
@@ -4911,7 +5909,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person eating while sitting in the driver's seat of a car with a manual shifter. Given the person's habit of eating in the car and the potential distraction this poses while driving, a proactive warning is advisable. Eating while driving, especially with a manual transmission, can lead to decreased attention and slower reaction times, increasing the risk of an accident.\n\nBet: $8"
+    "justification": "The frames show the person eating while sitting in the driver's seat of a car with a manual shifter. Given the person's habit of eating in the car and the potential distraction this poses while driving, a proactive warning is advisable. Eating while driving, especially with a manual transmission, can lead to decreased attention and slower reaction times, increasing the risk of an accident.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.5)"
+    ]
   },
   {
     "participant_id": 11,
@@ -4941,7 +5945,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a relaxed seating position in their car, interacting with their smartphone. Given their history of using the phone while parked and the fact that they are not driving, there is no immediate danger. However, if they plan to drive soon, it's important to ensure the phone is secured to prevent distractions.\n\nBet: $3"
+    "justification": "The frames show the person in a relaxed seating position in their car, interacting with their smartphone. Given their history of using the phone while parked and the fact that they are not driving, there is no immediate danger. However, if they plan to drive soon, it's important to ensure the phone is secured to prevent distractions.\n\nBet: $3",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.5)",
+      "(M1.7)",
+      "(M1.9)"
+    ]
   },
   {
     "participant_id": 11,
@@ -5026,7 +6037,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person handling a laptop while seated in a car with a manual transmission. Given their history of multitasking in the car and a previous incident involving a laptop, there is a risk of distraction or potential damage to the laptop. A proactive warning to ensure the laptop is securely placed and to avoid multitasking while driving would be prudent.\n\nBet: $6"
+    "justification": "The frames show the person handling a laptop while seated in a car with a manual transmission. Given their history of multitasking in the car and a previous incident involving a laptop, there is a risk of distraction or potential damage to the laptop. A proactive warning to ensure the laptop is securely placed and to avoid multitasking while driving would be prudent.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.5)",
+      "(M1.15)",
+      "(M1.18)",
+      "(M1.20)",
+      "(M1.21)",
+      "(M1.25)",
+      "(M1.26)"
+    ]
   },
   {
     "participant_id": 11,
@@ -5053,7 +6074,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person eating while in the car, which aligns with their habit of snacking while driving. Given their tendency to be distracted while eating, a proactive warning about the dangers of distracted driving is advisable. Ensuring full attention on the road is crucial for safety.\n\nBet: $8"
+    "justification": "The frames show the person eating while in the car, which aligns with their habit of snacking while driving. Given their tendency to be distracted while eating, a proactive warning about the dangers of distracted driving is advisable. Ensuring full attention on the road is crucial for safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.5)",
+      "(M1.8)"
+    ]
   },
   {
     "participant_id": 11,
@@ -5084,7 +6110,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person interacting with their phone while seated in the car, which aligns with their habit of using the phone while parked. Given the context, there is no immediate danger as the car appears stationary. However, if the person intends to drive soon, a proactive warning about the risks of phone use while driving could be beneficial to prevent distracted driving.\n\nBet: $4"
+    "justification": "The frames show the person interacting with their phone while seated in the car, which aligns with their habit of using the phone while parked. Given the context, there is no immediate danger as the car appears stationary. However, if the person intends to drive soon, a proactive warning about the risks of phone use while driving could be beneficial to prevent distracted driving.\n\nBet: $4",
+    "reference": [
+      "(V)",
+      "(M1.5)",
+      "(M1.8)",
+      "(M1.9)",
+      "(M1.12)"
+    ]
   },
   {
     "participant_id": 11,
@@ -5120,7 +6153,15 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road and avoid distractions while driving, especially since you often use your phone in the car.\"",
-    "justification": "The frames show the person interacting with their phone while in the car, which aligns with their habit of using the phone in this setting. Given their tendency to be distracted while eating or using the phone, a proactive warning about the risks of distracted driving is advisable, especially if the car is in motion. Ensuring safety by minimizing distractions is crucial.\n\nBet: $8"
+    "justification": "The frames show the person interacting with their phone while in the car, which aligns with their habit of using the phone in this setting. Given their tendency to be distracted while eating or using the phone, a proactive warning about the risks of distracted driving is advisable, especially if the car is in motion. Ensuring safety by minimizing distractions is crucial.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.5)",
+      "(M1.8)",
+      "(M1.9)",
+      "(M1.14)",
+      "(M1.17)"
+    ]
   },
   {
     "participant_id": 11,
@@ -5169,7 +6210,19 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person using a laptop while sitting in the driver's seat of a car. Given their habit of working in the car and the previous incident of spilling coffee on the laptop, there is a risk of distraction or potential accidents if the car is not parked securely. It would be prudent to ensure the car is parked safely and the laptop is used without distractions.\n\nBet: $6"
+    "justification": "The frames show the person using a laptop while sitting in the driver's seat of a car. Given their habit of working in the car and the previous incident of spilling coffee on the laptop, there is a risk of distraction or potential accidents if the car is not parked securely. It would be prudent to ensure the car is parked safely and the laptop is used without distractions.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.5)",
+      "(M1.8)",
+      "(M1.12)",
+      "(M1.14)",
+      "(M1.15)",
+      "(M1.18)",
+      "(M1.25)",
+      "(M1.26)",
+      "(M1.29)"
+    ]
   },
   {
     "participant_id": 11,
@@ -5250,7 +6303,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a relaxed position in their car with a laptop visible. Given the past incident of spilling coffee on the laptop, there is a potential risk if any drinks are nearby. However, no immediate danger is visible in the frames. It might be wise to remind the person to be cautious with liquids around the laptop, but no urgent warning is needed.\n\nBet: $3"
+    "justification": "The frames show the person in a relaxed position in their car with a laptop visible. Given the past incident of spilling coffee on the laptop, there is a potential risk if any drinks are nearby. However, no immediate danger is visible in the frames. It might be wise to remind the person to be cautious with liquids around the laptop, but no urgent warning is needed.\n\nBet: $3",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M2.1)",
+      "(M2.2)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5283,7 +6343,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is sitting in a relaxed position in their car, interacting with their phone. Given their past experience of dropping the phone while reaching for the water bottle, there is a potential risk of distraction or dropping the phone again. A proactive warning to be cautious while handling the phone in this position could be beneficial.\n\nBet: $5"
+    "justification": "The person is sitting in a relaxed position in their car, interacting with their phone. Given their past experience of dropping the phone while reaching for the water bottle, there is a potential risk of distraction or dropping the phone again. A proactive warning to be cautious while handling the phone in this position could be beneficial.\n\nBet: $5",
+    "reference": [
+      "(M1.4)",
+      "(M1.7)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M2.1)",
+      "(M2.2)",
+      "(M2.6)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5318,7 +6387,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person reaching for a water bottle while seated in a relaxed position in the car. Given the memories, the person has had incidents with the water bottle before, but it is spill-proof. However, the presence of a red button, possibly for emergencies, suggests caution should be exercised to avoid accidental activation. A gentle reminder to be mindful of the surroundings and ensure the bottle is securely placed might be beneficial.\n\nBet: $4"
+    "justification": "The frames show the person reaching for a water bottle while seated in a relaxed position in the car. Given the memories, the person has had incidents with the water bottle before, but it is spill-proof. However, the presence of a red button, possibly for emergencies, suggests caution should be exercised to avoid accidental activation. A gentle reminder to be mindful of the surroundings and ensure the bottle is securely placed might be beneficial.\n\nBet: $4",
+    "reference": [
+      "(V)",
+      "(M1.7)",
+      "(M1.11)",
+      "(M1.14)",
+      "(M1.16)",
+      "(M2.2)",
+      "(M2.4)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5356,7 +6435,10 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is in a parked car, reaching for a snack from a yellow bag, which aligns with their memory of snacking while parked. They are not driving, so the risk is minimal. However, they should be cautious about spilling, as past experiences have shown discomfort from such incidents.\n\nBet: $3"
+    "justification": "The person is in a parked car, reaching for a snack from a yellow bag, which aligns with their memory of snacking while parked. They are not driving, so the risk is minimal. However, they should be cautious about spilling, as past experiences have shown discomfort from such incidents.\n\nBet: $3",
+    "reference": [
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5400,7 +6482,14 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person appears to be parked and reading a magazine in their car, which aligns with their habit of reading during waits. There is no immediate danger as they are not driving, and the environment seems relaxed. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The person appears to be parked and reading a magazine in their car, which aligns with their habit of reading during waits. There is no immediate danger as they are not driving, and the environment seems relaxed. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(M1.19)",
+      "(M2.2)",
+      "(M2.3)",
+      "(M2.5)",
+      "(M2.6)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5448,7 +6537,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person appears to be parked and in a relaxed position, using their phone. Given their habit of using the phone while parked and the presence of a water bottle, there is no immediate danger. The situation seems safe, and no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The person appears to be parked and in a relaxed position, using their phone. Given their habit of using the phone while parked and the presence of a water bottle, there is no immediate danger. The situation seems safe, and no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(M1.7)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.14)",
+      "(M1.24)",
+      "(M1.26)",
+      "(M2.1)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5494,7 +6593,22 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person sitting in a relaxed position in their car, drinking from a water bottle. This aligns with their preference for hydrating while driving or parked. There is no immediate danger or distraction evident in the frames, as the car appears stationary and the person is not interacting with the vehicle controls. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person sitting in a relaxed position in their car, drinking from a water bottle. This aligns with their preference for hydrating while driving or parked. There is no immediate danger or distraction evident in the frames, as the car appears stationary and the person is not interacting with the vehicle controls. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.7)",
+      "(M1.8)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.14)",
+      "(M1.17)",
+      "(M1.21)",
+      "(M1.24)",
+      "(M1.25)",
+      "(M1.27)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5546,7 +6660,15 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is eating in the car, which aligns with their memories of frequently eating and drinking while driving. The presence of a manual transmission and the act of eating could potentially distract from driving, especially if the car is in motion. However, since the person appears to be parked, the immediate risk is low. A gentle reminder to ensure the car is stationary while eating might be beneficial.\n\nBet: $3"
+    "justification": "The person is eating in the car, which aligns with their memories of frequently eating and drinking while driving. The presence of a manual transmission and the act of eating could potentially distract from driving, especially if the car is in motion. However, since the person appears to be parked, the immediate risk is low. A gentle reminder to ensure the car is stationary while eating might be beneficial.\n\nBet: $3",
+    "reference": [
+      "(M1.14)",
+      "(M1.17)",
+      "(M1.18)",
+      "(M1.27)",
+      "(M1.28)",
+      "(M1.30)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5601,7 +6723,19 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person adjusting their position in the car, which might involve reaching for something or adjusting the seat. Given the memory of previously knocking over a water bottle while adjusting the seat, there is a risk of repeating this incident. A proactive warning to be cautious of the water bottle placement could prevent a spill.\n\nBet: $6"
+    "justification": "The frames show the person adjusting their position in the car, which might involve reaching for something or adjusting the seat. Given the memory of previously knocking over a water bottle while adjusting the seat, there is a risk of repeating this incident. A proactive warning to be cautious of the water bottle placement could prevent a spill.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.7)",
+      "(M1.11)",
+      "(M1.14)",
+      "(M1.18)",
+      "(M1.24)",
+      "(M1.27)",
+      "(M1.28)",
+      "(M1.31)",
+      "(M2.6)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5634,7 +6768,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in their car, handling a jacket. Given the memories, the person often uses their jacket for comfort and warmth, especially in chilly conditions. The presence of the red button in the car suggests a feature that might require caution. However, there is no immediate indication of danger in the frames, as the person appears to be simply adjusting their clothing. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person in their car, handling a jacket. Given the memories, the person often uses their jacket for comfort and warmth, especially in chilly conditions. The presence of the red button in the car suggests a feature that might require caution. However, there is no immediate indication of danger in the frames, as the person appears to be simply adjusting their clothing. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.8)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5672,7 +6815,23 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person adjusting their clothing and handling sunglasses inside a car. Given the memories, this aligns with their habit of wearing sunglasses while driving. There is no immediate indication of danger or urgency in the situation. The person appears to be preparing for a drive in a relaxed manner.\n\nBet: $2"
+    "justification": "The frames show the person adjusting their clothing and handling sunglasses inside a car. Given the memories, this aligns with their habit of wearing sunglasses while driving. There is no immediate indication of danger or urgency in the situation. The person appears to be preparing for a drive in a relaxed manner.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.8)",
+      "(M1.10)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.13)",
+      "(M1.15)",
+      "(M1.16)",
+      "(M2.3)",
+      "(M2.5)",
+      "(M2.7)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5717,7 +6876,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a relaxed posture, possibly parked, as they reach for snacks in the car. Given the memories, this aligns with their habit of eating snacks while waiting. There is no immediate indication of danger or urgency, as the car appears stationary and the person is not actively driving.\n\nBet: $2"
+    "justification": "The frames show the person in a relaxed posture, possibly parked, as they reach for snacks in the car. Given the memories, this aligns with their habit of eating snacks while waiting. There is no immediate indication of danger or urgency, as the car appears stationary and the person is not actively driving.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.6)",
+      "(M1.16)",
+      "(M1.22)",
+      "(M1.25)",
+      "(M2.3)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 12,
@@ -5827,7 +6995,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is seated in a parked car, holding a water bottle and a snack, which aligns with their habit of snacking while parked. There is no immediate indication of danger or distraction since the car is not in motion. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The person is seated in a parked car, holding a water bottle and a snack, which aligns with their habit of snacking while parked. There is no immediate indication of danger or distraction since the car is not in motion. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(M1.6)",
+      "(M1.22)",
+      "(M1.28)",
+      "(M1.29)",
+      "(M1.30)",
+      "(M1.32)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 13,
@@ -5849,7 +7026,10 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person approaching and entering their car, which has a note on the seat. Given the memories, this note might be important, possibly related to refueling. The person should be reminded to check the note before driving to ensure they don't overlook any important tasks, like filling up the gas.\n\nBet: $5"
+    "justification": "The frames show the person approaching and entering their car, which has a note on the seat. Given the memories, this note might be important, possibly related to refueling. The person should be reminded to check the note before driving to ensure they don't overlook any important tasks, like filling up the gas.\n\nBet: $5",
+    "reference": [
+      "(V)"
+    ]
   },
   {
     "participant_id": 13,
@@ -5876,7 +7056,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person entering their car, which has a manual gear shift and a yellow tote bag, consistent with their memories. The note on the seat could be a distraction if not secured, and given their habit of using a phone while driving, a proactive warning about potential distractions is advisable. Ensuring the note is stored safely before driving could prevent distractions.\n\nBet: $6"
+    "justification": "The frames show the person entering their car, which has a manual gear shift and a yellow tote bag, consistent with their memories. The note on the seat could be a distraction if not secured, and given their habit of using a phone while driving, a proactive warning about potential distractions is advisable. Ensuring the note is stored safely before driving could prevent distractions.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.7)",
+      "(M1.11)"
+    ]
   },
   {
     "participant_id": 13,
@@ -5954,7 +7140,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is seated in their car, wearing a seatbelt, and appears to be reading a newspaper. Given their memories, they enjoy reading in the car and are currently parked, which suggests they are not driving. There is no immediate danger or need for a proactive warning as the situation seems relaxed and safe.\n\nBet: $2"
+    "justification": "The person is seated in their car, wearing a seatbelt, and appears to be reading a newspaper. Given their memories, they enjoy reading in the car and are currently parked, which suggests they are not driving. There is no immediate danger or need for a proactive warning as the situation seems relaxed and safe.\n\nBet: $2",
+    "reference": [
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.13)",
+      "(M1.17)"
+    ]
   },
   {
     "participant_id": 13,
@@ -5992,7 +7184,20 @@
     "type_2_memories": [],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is handling a yellow bag while seated in a parked car, as indicated by the stationary gear shift and relaxed posture. Since the car is not in motion, there is no immediate danger. However, if the person intends to drive soon, it's important to ensure the bag is securely stored to prevent distractions.\n\nBet: $3"
+    "justification": "The person is handling a yellow bag while seated in a parked car, as indicated by the stationary gear shift and relaxed posture. Since the car is not in motion, there is no immediate danger. However, if the person intends to drive soon, it's important to ensure the bag is securely stored to prevent distractions.\n\nBet: $3",
+    "reference": [
+      "(M1.2)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.13)",
+      "(M1.15)",
+      "(M1.16)",
+      "(M1.17)",
+      "(M1.19)",
+      "(M1.25)"
+    ]
   },
   {
     "participant_id": 13,
@@ -6109,7 +7314,22 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person is using their phone while in the driver's seat, which can be distracting and potentially dangerous if the car is in motion. Although they are parked, as indicated by the memories, it's important to ensure that phone use doesn't continue while driving. A proactive warning about the risks of using a phone while driving could be beneficial.\n\nBet: $6"
+    "justification": "The person is using their phone while in the driver's seat, which can be distracting and potentially dangerous if the car is in motion. Although they are parked, as indicated by the memories, it's important to ensure that phone use doesn't continue while driving. A proactive warning about the risks of using a phone while driving could be beneficial.\n\nBet: $6",
+    "reference": [
+      "(M1.2)",
+      "(M1.6)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.13)",
+      "(M1.16)",
+      "(M1.17)",
+      "(M1.24)",
+      "(M1.32)",
+      "(M1.33)",
+      "(M1.35)",
+      "(M1.38)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 13,
@@ -6169,7 +7389,18 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person driving with a seatbelt on, wearing casual clothing, and reaching for the automation button. Given the memories, the person has a history of using the automation button, sometimes leading to confusion. Since they are reaching for the button, a proactive warning about potential distractions or unintended activation of the automation feature could be beneficial to ensure safety.\n\nBet: $6"
+    "justification": "The frames show the person driving with a seatbelt on, wearing casual clothing, and reaching for the automation button. Given the memories, the person has a history of using the automation button, sometimes leading to confusion. Since they are reaching for the button, a proactive warning about potential distractions or unintended activation of the automation feature could be beneficial to ensure safety.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.3)",
+      "(M1.10)",
+      "(M1.13)",
+      "(M1.16)",
+      "(M1.18)",
+      "(M1.24)",
+      "(M1.37)",
+      "(M1.40)"
+    ]
   },
   {
     "participant_id": 13,
@@ -6192,7 +7423,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person reaching for a snack while in the driver's seat, which aligns with their habit of eating in the car. Although they are parked, handling food can still be distracting, especially if they decide to drive shortly after. It's important to ensure that they remain focused on driving once they start moving. A gentle reminder to finish eating before driving could be beneficial.\n\nBet: $4"
+    "justification": "The frames show the person reaching for a snack while in the driver's seat, which aligns with their habit of eating in the car. Although they are parked, handling food can still be distracting, especially if they decide to drive shortly after. It's important to ensure that they remain focused on driving once they start moving. A gentle reminder to finish eating before driving could be beneficial.\n\nBet: $4",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 13,
@@ -6265,7 +7501,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person reaching for something, likely a snack or water bottle, while seated in the car. Given their habit of eating and drinking while driving, it's important to ensure they are not distracted, especially since the car has a manual transmission. A proactive warning to focus on the road and avoid distractions while driving would be prudent.\n\nBet: $6"
+    "justification": "The frames show the person reaching for something, likely a snack or water bottle, while seated in the car. Given their habit of eating and drinking while driving, it's important to ensure they are not distracted, especially since the car has a manual transmission. A proactive warning to focus on the road and avoid distractions while driving would be prudent.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.4)",
+      "(M1.6)",
+      "(M1.10)",
+      "(M1.17)",
+      "(M1.18)"
+    ]
   },
   {
     "participant_id": 13,
@@ -6309,7 +7555,11 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The person appears to be parked, as indicated by their relaxed posture and engagement with a phone call. This aligns with their memory of using hands-free features while parked. Since they are not driving, there is no immediate safety concern requiring a proactive warning.\n\nBet: $2"
+    "justification": "The person appears to be parked, as indicated by their relaxed posture and engagement with a phone call. This aligns with their memory of using hands-free features while parked. Since they are not driving, there is no immediate safety concern requiring a proactive warning.\n\nBet: $2",
+    "reference": [
+      "(M1.1)",
+      "(M1.4)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6340,7 +7590,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person using a laptop in the car, which aligns with their habit of working in the car. However, if the car is in motion, this could be dangerous. Given the context, a proactive warning about the risks of using a laptop while driving is advisable to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person using a laptop in the car, which aligns with their habit of working in the car. However, if the car is in motion, this could be dangerous. Given the context, a proactive warning about the risks of using a laptop while driving is advisable to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.6)",
+      "(M1.10)",
+      "(M1.12)",
+      "(M2.1)",
+      "(M2.4)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6380,7 +7640,17 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your focus on the road and handle that drink carefully—don't want a repeat of the spill at the park!\"",
-    "justification": "The frames show the person opening and drinking from a bottle while driving. Given their history of spilling drinks in the car, there is a risk of distraction or another spill, which could be hazardous while driving. A proactive warning to focus on the road and handle the drink carefully would be advisable.\n\nBet: $8"
+    "justification": "The frames show the person opening and drinking from a bottle while driving. Given their history of spilling drinks in the car, there is a risk of distraction or another spill, which could be hazardous while driving. A proactive warning to focus on the road and handle the drink carefully would be advisable.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.6)",
+      "(M1.13)",
+      "(M1.14)",
+      "(M1.17)",
+      "(M1.19)",
+      "(M2.3)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6422,7 +7692,17 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person adjusting their glasses while in the car, which aligns with their memory of wearing prescription glasses for better visibility. There is no immediate indication of danger or distraction, as the person appears to be stationary and focused on adjusting their glasses. Therefore, no proactive warning is necessary.\n\nBet: $2"
+    "justification": "The frames show the person adjusting their glasses while in the car, which aligns with their memory of wearing prescription glasses for better visibility. There is no immediate indication of danger or distraction, as the person appears to be stationary and focused on adjusting their glasses. Therefore, no proactive warning is necessary.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.6)",
+      "(M1.14)",
+      "(M1.20)",
+      "(M1.21)",
+      "(M1.23)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6448,7 +7728,14 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember how those fries spilled all over your seat last time? It might be safer to wait until you're parked to eat.\"",
-    "justification": "The frames show the person handling food while driving a manual transmission vehicle. Given their history of food-related mishaps in the car, this could lead to distractions or accidents, especially since manual driving requires both hands at times. A proactive warning about the risks of eating while driving is advisable.\n\nBet: $8"
+    "justification": "The frames show the person handling food while driving a manual transmission vehicle. Given their history of food-related mishaps in the car, this could lead to distractions or accidents, especially since manual driving requires both hands at times. A proactive warning about the risks of eating while driving is advisable.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.4)",
+      "(M2.3)",
+      "(M2.8)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6465,7 +7752,12 @@
     "type_2_memories": [],
     "type": "proactive",
     "answer": "</response> \"Remember to keep both hands free for shifting gears while driving; eating can wait until you're safely parked.\"",
-    "justification": "The frames show the person eating while driving a manual transmission vehicle, which requires frequent gear shifting. This activity can significantly distract from driving, especially if one hand is occupied with food. Given the potential for reduced control over the vehicle, a proactive warning is warranted to ensure safety.\n\nBet: $8"
+    "justification": "The frames show the person eating while driving a manual transmission vehicle, which requires frequent gear shifting. This activity can significantly distract from driving, especially if one hand is occupied with food. Given the potential for reduced control over the vehicle, a proactive warning is warranted to ensure safety.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.4)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6496,7 +7788,17 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Remember to keep your phone down while driving; it can be distracting, especially with manual transmission.\"",
-    "justification": "The frames show the person using their phone while in the driver's seat, which aligns with their memory of often driving with their phone in hand. This behavior can be distracting and dangerous, especially in a vehicle with manual transmission where both hands are needed for optimal control. Additionally, the person is seen fastening their seatbelt, which is a positive safety measure. However, the use of the phone while driving remains a concern.\n\nBet: $8"
+    "justification": "The frames show the person using their phone while in the driver's seat, which aligns with their memory of often driving with their phone in hand. This behavior can be distracting and dangerous, especially in a vehicle with manual transmission where both hands are needed for optimal control. Additionally, the person is seen fastening their seatbelt, which is a positive safety measure. However, the use of the phone while driving remains a concern.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.4)",
+      "(M1.6)",
+      "(M1.8)",
+      "(M1.9)",
+      "(M2.2)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6527,7 +7829,13 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person cleaning the car's interior with a cloth, which aligns with their habit of maintaining cleanliness in the vehicle. The person is parked, as indicated by the stationary position and focus on cleaning, reducing immediate risk. No proactive warning is needed as the situation appears safe.\n\nBet: $2"
+    "justification": "The frames show the person cleaning the car's interior with a cloth, which aligns with their habit of maintaining cleanliness in the vehicle. The person is parked, as indicated by the stationary position and focus on cleaning, reducing immediate risk. No proactive warning is needed as the situation appears safe.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.11)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6562,7 +7870,15 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person drinking from a bottle while seated in the car, which aligns with their habit of consuming beverages in the vehicle. Given that the car appears to be stationary and the person is wearing a seatbelt, the immediate risk is low. However, if the car were to start moving, holding a bottle could distract from driving, especially with a manual transmission.\n\nBet: $3"
+    "justification": "The frames show the person drinking from a bottle while seated in the car, which aligns with their habit of consuming beverages in the vehicle. Given that the car appears to be stationary and the person is wearing a seatbelt, the immediate risk is low. However, if the car were to start moving, holding a bottle could distract from driving, especially with a manual transmission.\n\nBet: $3",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.4)",
+      "(M1.6)",
+      "(M1.9)",
+      "(M1.13)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6609,7 +7925,20 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a casual outfit, consistent with their preference for comfort while driving. They appear to be reaching for something, possibly indicating a distraction. Given their history of spills and mishaps while reaching for items, a proactive warning about maintaining focus on driving and minimizing distractions could be beneficial.\n\nBet: $6"
+    "justification": "The frames show the person in a casual outfit, consistent with their preference for comfort while driving. They appear to be reaching for something, possibly indicating a distraction. Given their history of spills and mishaps while reaching for items, a proactive warning about maintaining focus on driving and minimizing distractions could be beneficial.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.3)",
+      "(M1.6)",
+      "(M1.12)",
+      "(M1.15)",
+      "(M1.17)",
+      "(M1.18)",
+      "(M1.21)",
+      "(M1.26)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 14,
@@ -6661,7 +7990,12 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person exiting the car, which aligns with their habit of carefully closing car doors and exiting properly. There is no immediate indication of danger or unsafe behavior in the sequence. The person appears to be following their usual routine without any risky actions.\n\nBet: $2"
+    "justification": "The frames show the person exiting the car, which aligns with their habit of carefully closing car doors and exiting properly. There is no immediate indication of danger or unsafe behavior in the sequence. The person appears to be following their usual routine without any risky actions.\n\nBet: $2",
+    "reference": [
+      "(V)",
+      "(M1.31)",
+      "(M1.32)"
+    ]
   },
   {
     "participant_id": 15,
@@ -6685,7 +8019,11 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, holding a newspaper, which aligns with their habit of keeping newspapers for reading during breaks. However, if the car is in motion, reading a newspaper could be distracting and dangerous. It's important to ensure the car is parked before engaging in such activities.\n\nBet: $8"
+    "justification": "The frames show the person in a car, holding a newspaper, which aligns with their habit of keeping newspapers for reading during breaks. However, if the car is in motion, reading a newspaper could be distracting and dangerous. It's important to ensure the car is parked before engaging in such activities.\n\nBet: $8",
+    "reference": [
+      "(V)",
+      "(M1.5)"
+    ]
   },
   {
     "participant_id": 15,
@@ -6716,7 +8054,16 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in their car, wearing a black t-shirt with a sheep print and shorts, consistent with their general habits. They appear to be retrieving a notebook and a pencil, likely to jot down ideas. There is no immediate danger visible, as the car seems stationary and the person is engaged in a familiar activity. Therefore, no proactive warning is necessary.\n\nI bet $2 on this."
+    "justification": "The frames show the person in their car, wearing a black t-shirt with a sheep print and shorts, consistent with their general habits. They appear to be retrieving a notebook and a pencil, likely to jot down ideas. There is no immediate danger visible, as the car seems stationary and the person is engaged in a familiar activity. Therefore, no proactive warning is necessary.\n\nI bet $2 on this.",
+    "reference": [
+      "(V)",
+      "(M1.1)",
+      "(M1.2)",
+      "(M1.6)",
+      "(M1.10)",
+      "(M1.13)",
+      "(M2.1)"
+    ]
   },
   {
     "participant_id": 15,
@@ -6753,7 +8100,15 @@
     ],
     "type": "proactive",
     "answer": "</response> \"Make sure the car is parked before putting on your jacket; remember how you spilled soda on it during that road trip!\"",
-    "justification": "The person is attempting to put on a jacket while seated in the driver's seat of a car. This action could potentially distract them from driving and may lead to a safety hazard if the car is in motion. It's important to ensure the vehicle is stationary and secure before engaging in such activities.\n\nBet: $8"
+    "justification": "The person is attempting to put on a jacket while seated in the driver's seat of a car. This action could potentially distract them from driving and may lead to a safety hazard if the car is in motion. It's important to ensure the vehicle is stationary and secure before engaging in such activities.\n\nBet: $8",
+    "reference": [
+      "(M1.9)",
+      "(M1.18)",
+      "(M2.1)",
+      "(M2.3)",
+      "(M2.4)",
+      "(M2.5)"
+    ]
   },
   {
     "participant_id": 15,
@@ -6824,7 +8179,11 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in a car, possibly reaching for something, which aligns with their habit of eating snacks on the go. Given their past experiences with spills and crumbs, a proactive warning about potential mess or distraction while driving could be beneficial. Ensuring the car is stationary while handling food is advisable to maintain safety.\n\nBet: $6"
+    "justification": "The frames show the person in a car, possibly reaching for something, which aligns with their habit of eating snacks on the go. Given their past experiences with spills and crumbs, a proactive warning about potential mess or distraction while driving could be beneficial. Ensuring the car is stationary while handling food is advisable to maintain safety.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)"
+    ]
   },
   {
     "participant_id": 15,
@@ -6850,7 +8209,15 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person eating while seated in a car, which aligns with their memories of enjoying snacks in the car. However, if the car is in motion, eating could be a distraction, potentially compromising safety. It's important to ensure the car is parked or stopped safely before eating.\n\nBet: $6"
+    "justification": "The frames show the person eating while seated in a car, which aligns with their memories of enjoying snacks in the car. However, if the car is in motion, eating could be a distraction, potentially compromising safety. It's important to ensure the car is parked or stopped safely before eating.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.2)",
+      "(M1.5)",
+      "(M2.1)",
+      "(M2.2)",
+      "(M2.4)"
+    ]
   },
   {
     "participant_id": 15,
@@ -6886,7 +8253,19 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in their car, wearing a black t-shirt and shorts, consistent with their general habits. They appear to be reaching for something, possibly a drink or snack, which aligns with their memory of keeping bottled drinks in the car. Given their past experience of spilling water, a proactive warning to be cautious while reaching for items to avoid spills or distractions would be prudent.\n\nBet: $6"
+    "justification": "The frames show the person in their car, wearing a black t-shirt and shorts, consistent with their general habits. They appear to be reaching for something, possibly a drink or snack, which aligns with their memory of keeping bottled drinks in the car. Given their past experience of spilling water, a proactive warning to be cautious while reaching for items to avoid spills or distractions would be prudent.\n\nBet: $6",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.12)",
+      "(M1.14)",
+      "(M1.15)"
+    ]
   },
   {
     "participant_id": 15,
@@ -6928,6 +8307,22 @@
     ],
     "type": "proactive",
     "answer": "</silence>",
-    "justification": "The frames show the person in their car, wearing a black t-shirt with a graphic design and shorts, consistent with their general habits. The person appears to be focused on driving, with no immediate distractions visible. Given the context of their memories, such as the habit of multitasking and a previous mishap with a spilled drink, a gentle reminder to stay focused and avoid multitasking while driving could be beneficial. However, there is no urgent danger apparent in the frames.\n\nBet: $3"
+    "justification": "The frames show the person in their car, wearing a black t-shirt with a graphic design and shorts, consistent with their general habits. The person appears to be focused on driving, with no immediate distractions visible. Given the context of their memories, such as the habit of multitasking and a previous mishap with a spilled drink, a gentle reminder to stay focused and avoid multitasking while driving could be beneficial. However, there is no urgent danger apparent in the frames.\n\nBet: $3",
+    "reference": [
+      "(V)",
+      "(M1.4)",
+      "(M1.5)",
+      "(M1.6)",
+      "(M1.7)",
+      "(M1.9)",
+      "(M1.11)",
+      "(M1.14)",
+      "(M1.15)",
+      "(M1.17)",
+      "(M1.19)",
+      "(M1.20)",
+      "(M2.2)",
+      "(M2.5)"
+    ]
   }
 ]
